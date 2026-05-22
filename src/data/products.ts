@@ -1,0 +1,272 @@
+export interface Product {
+  id: string;
+  name: string;
+  formula: string;
+  category: "zinc-chemicals" | "metal-powders" | "metal-ingots";
+  form: string;
+  shortDescription: string;
+  description: string;
+  purityGrades: string[];
+  keyApplications: { title: string; description: string }[];
+  industries: string[];
+  imageUrl?: string;
+}
+
+export const productCategories = [
+  { id: "zinc-chemicals", name: "Zinc Chemicals" },
+  { id: "metal-powders", name: "Metal Powders" },
+  { id: "metal-ingots", name: "Metal Ingots" },
+];
+
+export const products: Product[] = [
+  {
+    id: "zinc-oxide",
+    name: "Zinc Oxide",
+    formula: "ZnO",
+    category: "zinc-chemicals",
+    form: "White Powder",
+    imageUrl: "/product/zinc_oxide.png",
+    shortDescription: "A white, odourless powder produced through our combined manufacturing process.",
+    description: "A white, odourless powder produced through our combined manufacturing process. Available in both recycled (90-92% purity) and virgin grade (99.99% purity) to suit your application requirements. A critical raw material across heavy industries worldwide.",
+    purityGrades: ["Recycled Zinc: 90-92% Purity", "Virgin Grade: 99.99% Purity"],
+    keyApplications: [
+      { title: "Rubber & Tyre Industry", description: "vulcanization activator" },
+      { title: "Ceramics & Glass", description: "opacifier & pigment" },
+      { title: "Pharmaceuticals", description: "antiseptic & sunscreen" },
+      { title: "Paints & Coatings", description: "UV absorber & mildewing" },
+      { title: "Agriculture", description: "micronutrient for crops" },
+      { title: "Electronics", description: "semiconductor applications" },
+    ],
+    industries: ["Rubber & Tyre", "Ceramics & Glass", "Pharmaceuticals", "Paints & Coatings", "Agriculture", "Electronics"],
+  },
+  {
+    id: "zinc-chloride",
+    name: "Zinc Chloride",
+    formula: "ZnCl₂",
+    category: "zinc-chemicals",
+    form: "Lump / Solution",
+    imageUrl: "/product/Zinc_chloride.png",
+    shortDescription: "Available in lump and liquid solution form with high industrial grade purity.",
+    description: "Available in lump and liquid solution form with high industrial grade purity. An extremely versatile chemical intermediate used across galvanizing, battery, and processing industries.",
+    purityGrades: ["Industrial Grade Purity"],
+    keyApplications: [
+      { title: "Galvanizing Flux", description: "removes oxides from steel before coating" },
+      { title: "Chemical Synthesis", description: "intermediate for organic reactions" },
+      { title: "Textile Processing", description: "mercerizing & dyeing agent" },
+      { title: "Battery Manufacturing", description: "electrolyte in dry cells" },
+      { title: "Wood Preservation", description: "fire retardant" },
+      { title: "Soldering Flux", description: "metal joining in electronics" },
+    ],
+    industries: ["Galvanizing", "Chemical Synthesis", "Textile", "Battery Manufacturing", "Wood Preservation", "Electronics"],
+  },
+  {
+    id: "zinc-sulphate",
+    name: "Zinc Sulphate",
+    formula: "ZnSO₄",
+    category: "zinc-chemicals",
+    form: "Nano / Heptahydrate",
+    imageUrl: "product/Zinc_sulphate.png",
+    shortDescription: "Supplied in Nano and Heptahydrate grades with excellent water solubility.",
+    description: "Supplied in Nano and Heptahydrate grades with excellent water solubility. One of the most widely used zinc compounds in agriculture, pharma, and industrial water treatment.",
+    purityGrades: ["Nano Grade", "Heptahydrate Grade"],
+    keyApplications: [
+      { title: "Fertilizer", description: "soil micronutrient to correct zinc deficiency" },
+      { title: "Animal Feed Additive", description: "zinc supplementation in livestock" },
+      { title: "Pharmaceutical", description: "zinc supplements & oral rehydration" },
+      { title: "Water Treatment", description: "algae control & purification" },
+      { title: "Electroplating", description: "zinc plating baths" },
+      { title: "Rayon Manufacturing", description: "viscose fibre processing" },
+    ],
+    industries: ["Agriculture", "Animal Feed", "Pharmaceuticals", "Water Treatment", "Electroplating", "Textile"],
+  },
+  {
+    id: "ammonium-chloride",
+    name: "Ammonium Chloride",
+    formula: "NH₄Cl",
+    category: "zinc-chemicals",
+    form: "White Crystals",
+    imageUrl: "/product/Ammonium_Chloride.png",
+    shortDescription: "Industrial-grade ammonium chloride produced with tight quality control for high purity.",
+    description: "Industrial-grade ammonium chloride produced with tight quality control for high purity. A core chemical input across fertilizer, battery, textile, and metal finishing industries.",
+    purityGrades: ["Industrial Grade"],
+    keyApplications: [
+      { title: "Fertilizers", description: "nitrogen source for crops" },
+      { title: "Dry Cell Batteries", description: "electrolyte in Leclanché cells" },
+      { title: "Metal Finishing", description: "flux in hot-dip galvanizing" },
+      { title: "Textile & Leather", description: "dyeing & tanning agent" },
+      { title: "Pharmaceuticals", description: "expectorant in cough medicines" },
+      { title: "Food Industry", description: "leavening agent in bread" },
+    ],
+    industries: ["Agriculture", "Battery Manufacturing", "Metal Finishing", "Textile", "Pharmaceuticals", "Food Industry"],
+  },
+  {
+    id: "zinc-flux",
+    name: "Zinc Flux",
+    formula: "ZnCl₂ + NH₄Cl",
+    category: "zinc-chemicals",
+    form: "Galvanizing Grade",
+    imageUrl: "/product/https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80",
+    shortDescription: "A specialist blend formulated specifically for the galvanizing industry.",
+    description: "A specialist blend formulated specifically for the galvanizing industry. Zinc flux removes iron oxides from steel surfaces and prevents re-oxidation, ensuring superior zinc adhesion and coating uniformity.",
+    purityGrades: ["Galvanizing Grade"],
+    keyApplications: [
+      { title: "Hot-Dip Galvanizing", description: "pre-treatment of steel" },
+      { title: "Metal Surface Cleaning", description: "oxide layer removal" },
+      { title: "Oxidation Prevention", description: "barrier during coating" },
+      { title: "Wire Galvanizing", description: "continuous galvanizing lines" },
+      { title: "Structural Steel", description: "corrosion protection prep" },
+    ],
+    industries: ["Galvanizing", "Steel Manufacturing", "Construction", "Wire Industry"],
+  },
+  {
+    id: "zinc-phosphate",
+    name: "Zinc Phosphate",
+    formula: "Zn₃(PO₄)₂",
+    category: "zinc-chemicals",
+    form: "Anti-Corrosion Pigment",
+    imageUrl: "/product/Zinc_phosphate.png",
+    shortDescription: "A white, corrosion-inhibiting pigment widely used in industrial paint and coating systems.",
+    description: "A white, corrosion-inhibiting pigment widely used in industrial paint and coating systems. Provides excellent adhesion promotion and long-term rust protection for metal substrates.",
+    purityGrades: ["Industrial Grade"],
+    keyApplications: [
+      { title: "Anti-Corrosion Primers", description: "rust-inhibiting undercoats" },
+      { title: "Metal Pretreatment", description: "phosphating before painting" },
+      { title: "Industrial Paints", description: "corrosion-resistant topcoats" },
+      { title: "Automotive Coatings", description: "underbody rust protection" },
+      { title: "Marine Coatings", description: "salt-water corrosion barriers" },
+    ],
+    industries: ["Paints & Coatings", "Automotive", "Marine", "Construction"],
+  },
+  {
+    id: "amp-chemicals",
+    name: "AMP Chemicals",
+    formula: "Zn(PO₄)₂",
+    category: "zinc-chemicals",
+    form: "Custom Spec",
+    imageUrl: "/product/https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=400&q=80",
+    shortDescription: "Our AMP chemical range is formulated for precision industrial applications.",
+    description: "Our AMP chemical range is formulated for precision industrial applications demanding specific reactivity profiles. Supplied to exact customer specifications for metal and chemical processing.",
+    purityGrades: ["AMP Grade", "Custom Specifications"],
+    keyApplications: [
+      { title: "Industrial Chemical Reactions", description: "catalyst & reagent" },
+      { title: "Metal Surface Treatment", description: "pretreatment & finishing" },
+      { title: "Chemical Processing", description: "intermediate synthesis" },
+      { title: "Metalworking", description: "cleaning & degreasing" },
+    ],
+    industries: ["Chemical Processing", "Metal Finishing", "Industrial Manufacturing"],
+  },
+  {
+    id: "zinc-dust",
+    name: "Zinc Dust",
+    formula: "Zn",
+    category: "metal-powders",
+    form: "All Mesh Sizes",
+    imageUrl: "/product/Zinc_dust.png",
+    shortDescription: "Manufactured with tightly controlled particle size distribution across all standard mesh grades.",
+    description: "Manufactured with tightly controlled particle size distribution across all standard mesh grades. Available in recycled (90-92% purity) and virgin grade (99.99% purity). Every batch undergoes rigorous purity testing before dispatch.",
+    purityGrades: ["Recycled Zinc: 90-92% Purity", "Virgin Grade: 99.99% Purity"],
+    keyApplications: [
+      { title: "Galvanizing", description: "cold galvanizing compounds & paints" },
+      { title: "Anti-Corrosion Paints", description: "zinc-rich primer coatings" },
+      { title: "Precious Metal Extraction", description: "cementation of gold & silver" },
+      { title: "Battery Industry", description: "anode material in alkaline cells" },
+      { title: "Metallurgical Processes", description: "desilveration of lead" },
+      { title: "Chemical Synthesis", description: "reducing agent in reactions" },
+      { title: "Rubber Industry", description: "cross-linking activator" },
+    ],
+    industries: ["Galvanizing", "Battery Manufacturing", "Paints & Coatings", "Chemical Industry", "Mining"],
+  },
+  {
+    id: "aluminium-ingot",
+    name: "Aluminium Ingot",
+    formula: "Al",
+    category: "metal-ingots",
+    form: "H2L Grade",
+    imageUrl: "/product/aluminium.png",
+    shortDescription: "Our H2L grade aluminium ingots are produced through careful smelting and quality monitoring.",
+    description: "Our H2L grade aluminium ingots are produced through careful smelting and quality monitoring to ensure uniform chemistry and dimensional consistency. Supplied in standard ingot form ready for re-melting and die casting operations.",
+    purityGrades: ["H2L Grade"],
+    keyApplications: [
+      { title: "Die Casting", description: "automotive parts" },
+      { title: "Industrial Machinery", description: "component manufacturing" },
+    ],
+    industries: ["Die-Casting", "Automotive", "Industrial Manufacturing"],
+  },
+  {
+    id: "lead-ingot",
+    name: "Lead Ingot",
+    formula: "Pb",
+    category: "metal-ingots",
+    form: "Battery & Alloy Grades",
+    imageUrl: "/product/Lead.png",
+    shortDescription: "Manufactured from recycled lead through controlled smelting.",
+    description: "Manufactured from recycled lead through controlled smelting, our lead ingots meet the purity requirements of battery manufacturers and shielding fabricators. Consistent casting dimensions ensure ease of handling and re-processing.",
+    purityGrades: ["Battery Grade", "Alloy Grade"],
+    keyApplications: [
+      { title: "Battery Manufacturing", description: "lead-acid batteries" },
+      { title: "Radiation Shielding", description: "medical & industrial" },
+      { title: "Metal Alloys", description: "solder & bearing metals" },
+    ],
+    industries: ["Battery Manufacturing", "Healthcare", "Alloy Manufacturing"],
+  },
+  {
+    id: "brass-ingot",
+    name: "Brass Ingot",
+    formula: "Cu+Zn",
+    category: "metal-ingots",
+    form: "Machinability Grades",
+    imageUrl: "/product/brass_ingot.png",
+    shortDescription: "Manufactured through precise alloying of copper and zinc, our Brass.",
+    description: "Manufactured through precise alloying of copper and zinc, our Brass Ingots are known for their excellent fluidity, corrosion resistance, and superior polishability. These ingots are cast under strictly controlled temperatures to ensure a uniform grain structure and zero internal defects, making them ideal for high-precision casting and industrial fittings.",
+    purityGrades: ["High Tensile Grade", "Free Cutting Grade", "Riveting Grade"],
+    keyApplications: [
+      { title: "Plumbing &amp; Fittings", description: "Valves, taps, and sanitary hardware" },
+      { title: "Electrical Components", description: "Terminals, connectors, and switchgear" },
+      { title: "Decorative Artifacts", description: "High-end hardware and architectural Die-Casting" },
+    ],
+    industries: ["Battery Manufacturing", "Healthcare", "Alloy Manufacturing"],
+  },
+  {
+    id: "cupper-igot",
+    name: "Cupper Ingot",
+    formula: "Cu",
+    category: "metal-ingots",
+    form: "Conductivity Grades",
+    imageUrl: "/product/Cupper.png",
+    shortDescription: "Copper Ingots are produced from high-purity electrolytic copper, renowned.",
+    description: "Copper Ingots are produced from high-purity electrolytic copper, renowned for their exceptional electrical and thermal conductivity. Cast using advanced smelting technology to ensure a smooth surface finish and minimal oxygen content, these ingots provide a reliable base for high-grade alloy production. They are specifically engineered to meet the rigorous demands of the global electrical and manufacturing industries.",
+    purityGrades: ["Electrolytic Tough Pitch (ETP) Grade", "Phosphorized Copper Grade", "Oxygen-Free Grade"],
+    keyApplications: [
+      { title: "Electrical & Electronics", description: "Used in the manufacturing of high-tension wires, cables, busbars, and transformer windings" },
+      { title: "Alloy Production", description: "Serves as the essential base metal for high-quality Brass, Bronze, and Gunmetal alloys" },
+      { title: "Construction & Architecture", description: "Integrated into premium roofing systems, plumbing networks, and decorative claddings" },
+    ],
+    industries: ["Battery Manufacturing", "Healthcare", "Alloy Manufacturing"],
+  },
+  {
+    id: "zinc-ingot",
+    name: "Zinc Ingot",
+    formula: "Zn",
+    category: "metal-ingots",
+    form: "Black & White Grades",
+    imageUrl: "/product/Zinc.png",
+    shortDescription: "Available in both Black (recycled, 90-92% purity) and White (virgin, 99.99% purity) grades.",
+    description: "Available in both Black (recycled, 90-92% purity) and White (virgin, 99.99% purity) grades. Quality-checked for Zinc content and trace element levels before every shipment.",
+    purityGrades: ["Recycled Black: 90-92% Purity", "Virgin White: 99.99% Purity"],
+    keyApplications: [
+      { title: "Hot-Dip Galvanizing", description: "protecting steel from corrosion" },
+      { title: "Alloy Manufacturing", description: "brass, bronze & die-cast alloys" },
+      { title: "Die Casting", description: "precision automotive & hardware parts" },
+      { title: "Oxide & Chemical Production", description: "feedstock for zinc chemicals" },
+    ],
+    industries: ["Galvanizing", "Die-Casting", "Alloy Manufacturing", "Chemical Industry"],
+  },
+];
+
+export function getProductById(id: string): Product | undefined {
+  return products.find((p) => p.id === id);
+}
+
+export function getProductsByCategory(category: string): Product[] {
+  return products.filter((p) => p.category === category);
+}
