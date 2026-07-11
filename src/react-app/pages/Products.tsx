@@ -7,6 +7,7 @@ import { Check, ArrowRight } from "lucide-react";
 
 const categoryLabels: Record<string, string> = {
   "zinc-chemicals": "Zinc Chemicals",
+  "other-chemicals": "Other Chemicals",
   "metal-powders": "Metal Powders",
   "metal-ingots": "Metal Ingots",
 };
@@ -37,7 +38,7 @@ function ProductCard({ product }: { product: Product }) {
 
         {/* Description */}
         <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-2">
-          {product.description}
+          {product.overview}
         </p>
 
         {/* View Details Link */}

@@ -12,8 +12,8 @@ const quickLinks = [
 ];
 
 export default function Footer() {
-  // Get product names for the key products section
-  const keyProducts = products.map(p => p.name);
+  // Get product names for the key products section — limit to 8 to prevent layout overflow
+  const keyProducts = products.slice(0, 8).map(p => p.name);
 
   return (
     <footer className="bg-[#FFFBF5] text-white relative z-20">
@@ -71,12 +71,16 @@ export default function Footer() {
           {/* Company Brochure - Right */}
           <div className="lg:col-span-3">
             <h4 className="font-bold text-orange-400 text-base mb-4">Company Brochure</h4>
-            <button className="inline-flex items-center gap-2 border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-semibold px-6 py-2.5 rounded transition-all duration-300 text-sm">
+            <a
+              href="/SGSC_Product_Brochure.pdf"
+              download="SGSC_Product_Brochure.pdf"
+              className="inline-flex items-center gap-2 border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-semibold px-6 py-2.5 rounded transition-all duration-300 text-sm"
+            >
               Download Now
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-            </button>
+            </a>
           </div>
         </div>
 
