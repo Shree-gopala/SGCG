@@ -52,7 +52,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // Recipient email address
-$recipientEmail = 'arvind.rya2023@gmail.com';
+$recipientEmail = 'info@shreegopalagroup.com';
 
 // Prepare email subject
 $emailSubject = "New Contact Form Submission: " . $subject;
