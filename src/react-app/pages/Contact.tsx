@@ -51,7 +51,7 @@ const handleSubmit = async (e: FormEvent) => {
   setIsSubmitting(true);
 
   try {
-    const response = await fetch("https://mail-handler.ghanshyam-kumar-sgsc.workers.dev/", {
+    const response = await fetch("/send-email.php", {
       method: "POST",
       body: JSON.stringify(formData),
       headers: { "Content-Type": "application/json" }
@@ -63,7 +63,7 @@ const handleSubmit = async (e: FormEvent) => {
       setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
       setErrors({});
     } else {
-      alert("Mail bhejane mein problem aayi. Worker check karein.");
+      alert("Mail bhejane mein problem aayi. PHP mail setup check karein.");
     }
   } catch (err) {
     alert("Network error! Connection check karein.");
