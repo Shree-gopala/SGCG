@@ -33,8 +33,8 @@ try {
         ]
     ]);
 
-    $host_connection = ($smtp_port == 465 ? 'ssl://' : 'tcp://') . $ip;
-    echo "3. Connecting to $host_connection on port $smtp_port (Timeout: 5s)...\n";
+    $host_connection = ($smtp_port == 465 ? 'ssl://' : 'tcp://') . $ip . ':' . $smtp_port;
+    echo "3. Connecting to $host_connection (Timeout: 5s)...\n";
     
     $start_time = microtime(true);
     $socket = @stream_socket_client($host_connection, $errno, $errstr, 5, STREAM_CLIENT_CONNECT, $context);
