@@ -110,7 +110,8 @@ export default function Footer() {
               <h5 className="font-semibold text-orange-400 text-sm mb-1">Email</h5>
               <p className="text-sm text-gray-900 break-all leading-normal">
                 ghanshyam.kumar.sgsc@gmail.com<br />
-                info@shreegopalagroup.com
+                info@shreegopalagroup.com<br />
+                shreegopalasanwariachemicals@gmail.com
               </p>
             </div>
           </div>

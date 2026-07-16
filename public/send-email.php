@@ -122,9 +122,19 @@ try {
         // Try secure SMTP first to prevent email going to Spam
         $mailSent = sendEmailViaSMTP($recipientEmail, $emailSubject, $emailBody, $email);
         
-        // If admin notification succeeds, send confirmation to customer
+        // If admin notification succeeds, try sending confirmation to customer in isolated try-catch
         if ($mailSent) {
-            @sendEmailViaSMTP($email, $clientSubject, $clientBody, $recipientEmail);
+            try {
+                sendEmailViaSMTP($email, $clientSubject, $clientBody, $recipientEmail);
+            } catch (Exception $clientSmtpEx) {
+                error_log("Client SMTP auto-responder failed: " . $clientSmtpEx->getMessage());
+                // Fallback to mail() for client
+                try {
+                    sendEmailViaMailFunction($email, $clientSubject, $clientBody, $recipientEmail);
+                } catch (Exception $clientMailEx) {
+                    error_log("Client Mail auto-responder fallback failed: " . $clientMailEx->getMessage());
+                }
+            }
         }
     } catch (Exception $smtpException) {
         $errorMessage = $smtpException->getMessage();
@@ -134,7 +144,11 @@ try {
         $mailSent = sendEmailViaMailFunction($recipientEmail, $emailSubject, $emailBody, $email);
         
         if ($mailSent) {
-            @sendEmailViaMailFunction($email, $clientSubject, $clientBody, $recipientEmail);
+            try {
+                sendEmailViaMailFunction($email, $clientSubject, $clientBody, $recipientEmail);
+            } catch (Exception $clientMailEx) {
+                error_log("Client Mail auto-responder fallback failed: " . $clientMailEx->getMessage());
+            }
         }
     }
     
@@ -222,21 +236,44 @@ function sendEmailViaSMTP($to, $subject, $body, $reply_to) {
     $smtp_user = SMTP_USER;
     $smtp_pass = SMTP_PASS;
 
-    // Connect to Hostinger SMTP server
-    // For port 465 we must use ssl:// prefix to negotiate SSL at handshake
-    $host_connection = ($smtp_port == 465 ? 'ssl://' : '') . $smtp_host;
-    $socket = @fsockopen($host_connection, $smtp_port, $errno, $errstr, 15);
+    // Connect to Hostinger SMTP server forcing IPv4 to prevent IPv6 hangs
+    $ip = gethostbyname($smtp_host);
+    
+    // Create socket context to disable SSL peer verification (CA bundle issues)
+    $context = stream_context_create([
+        'ssl' => [
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true,
+            'peer_name' => $smtp_host
+        ]
+    ]);
+
+    // Use stream_socket_client to apply the SSL stream context
+    $host_connection = ($smtp_port == 465 ? 'ssl://' : 'tcp://') . $ip;
+    
+    // Set connection timeout to 5 seconds
+    $socket = @stream_socket_client($host_connection, $errno, $errstr, 5, STREAM_CLIENT_CONNECT, $context);
     
     if (!$socket) {
-        throw new Exception("Could not connect to SMTP server $smtp_host on port $smtp_port: $errstr ($errno)");
+        throw new Exception("Could not connect to SMTP server $smtp_host ($ip) on port $smtp_port: $errstr ($errno)");
     }
 
-    // Helper to read SMTP server responses
+    // Set read/write stream timeout to 5 seconds to prevent hanging
+    stream_set_timeout($socket, 5);
+
+    // Helper to read SMTP server responses with timeout checks
     $readResponse = function($socket, $expected) {
         $response = "";
         while (substr($response, 3, 1) != ' ') {
             $line = fgets($socket, 512);
-            if ($line === false) break;
+            if ($line === false) {
+                $info = stream_get_meta_data($socket);
+                if ($info['timed_out']) {
+                    throw new Exception("SMTP connection timed out waiting for response.");
+                }
+                break;
+            }
             $response .= $line;
         }
         $code = substr($response, 0, 3);

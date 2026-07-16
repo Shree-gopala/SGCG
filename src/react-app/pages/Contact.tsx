@@ -95,6 +95,9 @@ const handleSubmit = async (e: FormEvent) => {
           <a href="mailto:info@shreegopalagroup.com" className="text-gray-600 hover:text-orange-500 transition-colors break-all">
             info@shreegopalagroup.com
           </a>
+          <a href="mailto:shreegopalasanwariachemicals@gmail.com" className="text-gray-600 hover:text-orange-500 transition-colors break-all">
+            shreegopalasanwariachemicals@gmail.com
+          </a>
         </div>
       ),
     },
