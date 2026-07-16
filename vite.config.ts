@@ -3,13 +3,12 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { mochaPlugins } from "@getmocha/vite-plugins";
 
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 export default defineConfig({
 	base: './',
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-	  plugins: [
-	    ...mochaPlugins(process.env as any),
-	    react(),
-	  ],
+	  plugins: [...mochaPlugins(process.env as any), react(), cloudflare()],
 	  server: {
 	    allowedHosts: true,
 	  },

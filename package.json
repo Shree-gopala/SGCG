@@ -19,6 +19,7 @@
     "zod": "^3.24.3"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.45.0",
     "@eslint/js": "9.25.1",
     "@getmocha/users-service": "^0.0.4",
     "@getmocha/vite-plugins": "latest",
@@ -37,13 +38,16 @@
     "tailwindcss-animate": "^1.0.7",
     "typescript": "5.8.3",
     "typescript-eslint": "8.31.0",
-    "vite": "^7.1.3"
+    "vite": "^7.1.3",
+    "wrangler": "^4.111.0"
   },
   "scripts": {
     "build": "vite build",
     "check": "tsc && vite build",
     "dev": "vite",
     "knip": "knip",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "deploy": "npm run build && wrangler deploy",
+    "preview": "npm run build && wrangler dev"
   }
 }
