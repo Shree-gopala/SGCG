@@ -21,7 +21,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const productCategories = [
   { id: "all", label: "All Products" },
-  { id: "zinc-chemicals", label: "Zinc Chemicals" },
+  { id: "chemicals", label: "Chemicals" },
   { id: "metal-powders", label: "Metal Powders" },
   { id: "metal-ingots", label: "Metal Ingots" },
 ];
@@ -109,6 +109,17 @@ export default function HomePage() {
                 <span>Discover Our Story</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
+            </div>
+
+            {/* Vision Section */}
+            <div className="max-w-4xl mx-auto mt-16 p-8 md:p-10 bg-gradient-to-br from-orange-50/60 to-orange-100/30 rounded-3xl border border-orange-100/50 shadow-sm relative overflow-hidden">
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-orange-500/5 rounded-full blur-2xl" />
+              <div className="relative text-center">
+                <span className="text-orange-500 text-xs font-bold uppercase tracking-widest block mb-3">Our Core Vision</span>
+                <p className="font-serif text-xl md:text-2xl text-gray-800 italic font-semibold leading-relaxed max-w-3xl mx-auto">
+                  “Building a Stronger India through Manufacturing Excellence, Innovation, Trust, and Sustainable Growth.”
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -260,7 +271,7 @@ export default function HomePage() {
                           </div>
                           {/* Category badge */}
                           <div className="absolute top-4 right-4 px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-bhagwa-dark">
-                            {product.category === 'zinc-chemicals' ? 'Zinc Chemical' : product.category === 'metal-powders' ? 'Metal Powder' : 'Metal Ingot'}
+                            {product.category === 'chemicals' ? 'Chemical' : product.category === 'metal-powders' ? 'Metal Powder' : 'Metal Ingot'}
                           </div>
                         </div>
 
@@ -394,7 +405,7 @@ export default function HomePage() {
           
           <div className="relative max-w-4xl mx-auto px-4 md:px-8 text-center">
             <h2 className="font-serif text-3xl md:text-4xl text-gray-800 mb-4">
-              Ready to Partner with Us?
+              Raise Your Query
             </h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
               Get in touch to discuss your requirements. Our team is ready to provide 

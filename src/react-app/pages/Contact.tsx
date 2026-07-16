@@ -75,25 +75,44 @@ const handleSubmit = async (e: FormEvent) => {
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone",
-      details: companyInfo.phone,
-      action: `tel:${companyInfo.phone.replace(/\s/g, "")}`,
+      details: (
+        <div className="flex flex-col gap-1 text-sm font-semibold">
+          <a href="tel:+919999665479" className="text-gray-600 hover:text-orange-500 transition-colors font-mono">+91 99996 65479</a>
+          <a href="tel:+919310543479" className="text-gray-600 hover:text-orange-500 transition-colors font-mono">+91 93105 43479</a>
+        </div>
+      ),
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      details: companyInfo.email,
-      action: `mailto:${companyInfo.email}`,
+      details: (
+        <div className="text-sm font-semibold">
+          <a href="mailto:shreegopalasanwariachemicals@gmail.com" className="text-gray-600 hover:text-orange-500 transition-colors break-all">
+            shreegopalasanwariachemicals@gmail.com
+          </a>
+        </div>
+      ),
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Address",
-      details: companyInfo.address,
-      action: `https://maps.google.com/?q=${encodeURIComponent(companyInfo.address)}`,
+      details: (
+        <div className="text-sm font-semibold">
+          <a
+            href={`https://maps.google.com/?q=${encodeURIComponent("4th Floor, G-4, Pushkar Enclave, Paschim Vihar, New Delhi - 110063")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-orange-500 transition-colors"
+          >
+            4th Floor, G-4, Pushkar Enclave, Paschim Vihar, New Delhi – 110063
+          </a>
+        </div>
+      ),
     },
     {
       icon: <Clock className="w-6 h-6" />,
       title: "Business Hours",
-      details: "Mon - Sat: 9:00 AM - 6:00 PM",
+      details: <span className="text-gray-600 text-sm font-semibold">Mon - Sat: 9:00 AM - 6:00 PM</span>,
     },
   ];
 
@@ -138,23 +157,20 @@ const handleSubmit = async (e: FormEvent) => {
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {contactInfo.map((info, index) => (
-                <a
+                <div
                   key={index}
-                  href={info.action}
-                  target={info.action?.startsWith("http") ? "_blank" : undefined}
-                  rel={info.action?.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="group bg-gray-50 p-6 rounded-xl hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-orange-300"
+                  className="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:border-orange-300 hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center text-orange-500 mb-4 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                  <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center text-orange-500 mb-4">
                     {info.icon}
                   </div>
-                  <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-orange-500 transition-colors">
+                  <h3 className="font-bold text-gray-900 text-lg mb-2">
                     {info.title}
                   </h3>
-                  <p className="text-gray-600 text-sm transition-colors">
+                  <div>
                     {info.details}
-                  </p>
-                </a>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -294,9 +310,22 @@ const handleSubmit = async (e: FormEvent) => {
                     className="grayscale hover:grayscale-0 transition-all duration-500"
                     title="SGSC Location"
                   />
-                  <div className="p-4 flex items-center gap-3">
-                    <MapPin className="w-5 h-5 text-orange-500 flex-shrink-0" />
-                    <p className="text-gray-600 text-sm">{companyInfo.address}</p>
+                  <div className="p-5 space-y-4">
+                    <div className="flex items-start gap-3">
+                      <MapPin className="w-5 h-5 text-orange-500 flex-shrink-0 mt-1" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900 text-sm mb-1">Factory Unit – 1</h4>
+                        <p className="text-gray-600 text-sm">Near Jindal Supreme India Limited, Delhi Road, Hisar, Haryana – 125001</p>
+                      </div>
+                    </div>
+                    <div className="border-t border-gray-100 my-2" />
+                    <div className="flex items-start gap-3">
+                      <MapPin className="w-5 h-5 text-orange-500 flex-shrink-0 mt-1" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900 text-sm mb-1">Factory Unit – 2</h4>
+                        <p className="text-gray-600 text-sm">Village Kharar, Delhi Road, Tehsil Hisar, District Hisar, Haryana – 125001, India</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 

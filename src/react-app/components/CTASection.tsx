@@ -10,10 +10,8 @@ export default function CTASection() {
             {/* Left - Text Content */}
             <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold italic leading-tight mb-6">
-                <span className="text-white">Ready to </span>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500">Partner</span>
-                <br />
-                <span className="text-white">with Us?</span>
+                <span className="text-white">Raise Your </span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500">Query</span>
               </h2>
               <Link
                 to="/contact"

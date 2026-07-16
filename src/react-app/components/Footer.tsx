@@ -96,8 +96,8 @@ export default function Footer() {
             </div>
             <div>
               <h5 className="font-semibold text-orange-400 text-sm mb-1">Phone</h5>
-              <p className="text-sm text-gray-900">+91 98765 43210</p>
-              <p className="text-sm text-gray-900">+91 12345 67890</p>
+              <p className="text-sm text-gray-900">+91 99996 65479</p>
+              <p className="text-sm text-gray-900">+91 93105 43479</p>
             </div>
           </div>
 
@@ -108,7 +108,7 @@ export default function Footer() {
             </div>
             <div>
               <h5 className="font-semibold text-orange-400 text-sm mb-1">Email</h5>
-              <p className="text-sm text-gray-900">info@sgsc.com / sales@sgsc.com</p>
+              <p className="text-sm text-gray-900">shreegopalasanwariachemicals@gmail.com</p>
             </div>
           </div>
 
@@ -118,12 +118,11 @@ export default function Footer() {
               <MapPin className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h5 className="font-semibold text-orange-400 text-sm mb-1">Address</h5>
+              <h5 className="font-semibold text-orange-400 text-sm mb-1">Corporate Office</h5>
               <p className="text-sm text-gray-900">
-                Near Jindal Supreme India Limited,
-                Delhi Road,<br /> Hisar, Haryana - India,
-                4<sup>TH</sup> Floor G-4 Pushkar Enclave <br />Paschim Vihar New Delhi-110063
-
+                4th Floor, G-4, Pushkar Enclave,<br />
+                Paschim Vihar,<br />
+                New Delhi – 110063
               </p>
             </div>
           </div>

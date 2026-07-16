@@ -3,7 +3,7 @@ export interface Product {
   name: string;
   formula: string;
   cas: string;
-  category: "zinc-chemicals" | "other-chemicals" | "metal-powders" | "metal-ingots";
+  category: "chemicals" | "metal-powders" | "metal-ingots";
   form: string;
   subtitle: string;
   overview: string;
@@ -18,8 +18,7 @@ export interface Product {
 export const productCategories = [
   { id: "metal-ingots", name: "Metal Ingots" },
   { id: "metal-powders", name: "Metal Powders" },
-  { id: "zinc-chemicals", name: "Zinc Chemicals" },
-  { id: "other-chemicals", name: "Other Chemicals" },
+  { id: "chemicals", name: "Chemicals" },
 ];
 
 export const products: Product[] = [
@@ -280,7 +279,7 @@ export const products: Product[] = [
     packaging: "25 kg HDPE bags with inner PE liner  50 kg steel drums  Palletised  Min order: 500 kg",
   },
 
-  // ─── ZINC CHEMICALS ─────────────────────────────────────────────────────────
+  // ─── CHEMICALS ──────────────────────────────────────────────────────────────
 
   // PAGE 12
   {
@@ -288,7 +287,7 @@ export const products: Product[] = [
     name: "Zinc Chloride",
     formula: "ZnCl₂",
     cas: "CAS 7646-85-7",
-    category: "zinc-chemicals",
+    category: "chemicals",
     form: "White Solid / 50% Liquid",
     subtitle: "CAS 7646-85-7 | Formula: ZnCl₂",
     imageUrl: "/product/p_zinc_chloride.jpg",
@@ -324,7 +323,7 @@ export const products: Product[] = [
     name: "Zinc Sulphate",
     formula: "ZnSO₄",
     cas: "CAS 7446-20-0 (Mono) | 7446-19-7 (Hepta)",
-    category: "zinc-chemicals",
+    category: "chemicals",
     form: "White Crystalline Powder",
     subtitle: "CAS 7446-20-0 (Mono) | 7446-19-7 (Hepta)",
     imageUrl: "/product/p_zinc_sulphate.jpg",
@@ -360,7 +359,7 @@ export const products: Product[] = [
     name: "Zinc Oxide",
     formula: "ZnO",
     cas: "CAS 1314-13-2",
-    category: "zinc-chemicals",
+    category: "chemicals",
     form: "White Powder",
     subtitle: "CAS 1314-13-2 | Formula: ZnO",
     imageUrl: "/product/p_zinc_oxide.jpg",
@@ -396,7 +395,7 @@ export const products: Product[] = [
     name: "Zinc Flux — Powder & Liquid",
     formula: "ZnCl₂·2NH₄Cl",
     cas: "CAS 14639-97-5",
-    category: "zinc-chemicals",
+    category: "chemicals",
     form: "Dry Powder & Liquid Solution",
     subtitle: "CAS 14639-97-5 | Formula: ZnCl₂·2NH₄Cl",
     imageUrl: "/product/p_zinc_flux.jpg",
@@ -432,7 +431,7 @@ export const products: Product[] = [
     name: "Ammonium Chloride",
     formula: "NH₄Cl",
     cas: "CAS 12125-02-9",
-    category: "zinc-chemicals",
+    category: "chemicals",
     form: "White Crystalline Powder",
     subtitle: "CAS 12125-02-9 | Formula: NH₄Cl",
     imageUrl: "/product/p_ammonium_chloride.jpg",
@@ -468,7 +467,7 @@ export const products: Product[] = [
     name: "Zinc Stearate",
     formula: "Zn(C₁₈H₃₅O₂)₂",
     cas: "CAS 557-05-1",
-    category: "zinc-chemicals",
+    category: "chemicals",
     form: "Fine White Powder",
     subtitle: "CAS 557-05-1 | Formula: Zn(C₁₈H₃₅O₂)₂",
     imageUrl: "/product/p_zinc_stearate.jpg",
@@ -504,7 +503,7 @@ export const products: Product[] = [
     name: "Zinc Active Oxide",
     formula: "ZnO*",
     cas: "CAS 1314-13-2",
-    category: "zinc-chemicals",
+    category: "chemicals",
     form: "Fine White Fluffy Powder",
     subtitle: "CAS 1314-13-2 | Active ZnO | High Surface Area",
     imageUrl: "/product/p_zinc_active_oxide.jpg",
@@ -534,15 +533,13 @@ export const products: Product[] = [
     packaging: "25 kg HDPE bags with PE inner liner  50 kg paper bags  Min order: 250 kg",
   },
 
-  // ─── OTHER CHEMICALS ─────────────────────────────────────────────────────────
-
   // PAGE 15
   {
     id: "copper-sulphate",
     name: "Copper Sulphate",
     formula: "CuSO₄",
     cas: "CAS 7758-99-8",
-    category: "other-chemicals",
+    category: "chemicals",
     form: "Blue Crystals / Powder",
     subtitle: "CAS 7758-99-8 | Formula: CuSO₄·5H₂O",
     imageUrl: "/product/p_copper_sulphate.jpg",
@@ -578,7 +575,7 @@ export const products: Product[] = [
     name: "Manganese Sulphate",
     formula: "MnSO₄",
     cas: "CAS 10034-96-5",
-    category: "other-chemicals",
+    category: "chemicals",
     form: "Pale Pink Powder",
     subtitle: "CAS 10034-96-5 | Formula: MnSO₄·H₂O",
     imageUrl: "/product/p_manganese_sulphate.jpg",
@@ -614,7 +611,7 @@ export const products: Product[] = [
     name: "Ferrous Sulphate (Iron Sulphate)",
     formula: "FeSO₄",
     cas: "CAS 7782-63-0",
-    category: "other-chemicals",
+    category: "chemicals",
     form: "Pale Green Crystals",
     subtitle: "CAS 7782-63-0 | Formula: FeSO₄·7H₂O",
     imageUrl: "/product/p_ferrous_sulphate.jpg",
@@ -650,7 +647,7 @@ export const products: Product[] = [
     name: "Magnesium Sulphate",
     formula: "MgSO₄",
     cas: "CAS 10034-99-8",
-    category: "other-chemicals",
+    category: "chemicals",
     form: "White Crystals / Powder",
     subtitle: "CAS 10034-99-8 | Formula: MgSO₄·7H₂O",
     imageUrl: "/product/p_magnesium_sulphate.jpg",
@@ -678,6 +675,78 @@ export const products: Product[] = [
     purityGrades: ["Technical Grade", "Agriculture Grade"],
     industries: ["Pharmaceuticals", "Textile", "Paper & Pulp", "Cosmetics", "Construction", "Agriculture"],
     packaging: "50 kg HDPE bags  25 kg bags  1 MT bulk bags  IBC on request  Min order: 500 kg",
+  },
+
+  // PAGE 23
+  {
+    id: "aluminium-sulphate",
+    name: "Aluminium Sulphate",
+    formula: "Al₂(SO₄)₃",
+    cas: "CAS 10043-01-3",
+    category: "chemicals",
+    form: "Slabs, Lumps, Crystals & Powder",
+    subtitle: "CAS 10043-01-3 | Formula: Al2(SO4)3·16H2O",
+    imageUrl: "/product/p_aluminium_sulphate.png",
+    overview:
+      "Aluminium Sulphate (Alum) is a white crystalline solid supplied by SGSC in Non-Ferric and Ferric grades conforming to IS 260. The industry-standard coagulant for water & effluent treatment, it is also widely used in paper sizing, textile dyeing, and tanning. Available as slabs, lumps, crystals, and powder.",
+    technicalSpecs: [
+      { label: "Al2O3 — Non-Ferric grade", value: "≥ 16.0%" },
+      { label: "Al2O3 — Ferric grade",     value: "≥ 15.0%" },
+      { label: "Iron (Fe2O3) — Non-Ferric", value: "≤ 0.01%" },
+      { label: "Water insolubles",         value: "≤ 0.5%" },
+      { label: "pH (5% soln)",             value: "2.5 – 3.5" },
+      { label: "Forms",                    value: "Slabs, lumps, crystals & powder" },
+      { label: "Standard",                 value: "IS 260 / Water Treatment Grade" },
+    ],
+    keyApplications: [
+      "Drinking water & municipal treatment coagulant",
+      "Effluent & sewage treatment plants (ETP / STP)",
+      "Paper & pulp — rosin sizing & retention aid",
+      "Textile dyeing & printing mordant",
+      "Fire extinguisher foam & fireproofing compounds",
+      "Leather tanning & hide processing auxiliary",
+      "Soil pH correction & horticulture applications",
+      "Pigment, lake colour & dye manufacturing",
+    ],
+    purityGrades: ["Non-Ferric Grade (Al2O3 ≥ 16.0%)", "Ferric Grade (Al2O3 ≥ 15.0%)"],
+    industries: ["Water Treatment", "Paper & Pulp", "Textile", "Leather", "Agriculture", "Chemical Manufacturing"],
+    packaging: "50 kg HDPE bags • 25 kg bags • 500 kg / 1000 kg jumbo bags • Min order: 1 MT",
+  },
+
+  // PAGE 24
+  {
+    id: "zinc-phosphate",
+    name: "Zinc Phosphate",
+    formula: "Zn₃(PO₄)₂",
+    cas: "CAS 7779-90-0",
+    category: "chemicals",
+    form: "White Crystalline Powder",
+    subtitle: "CAS 7779-90-0 | Formula: Zn3(PO4)2",
+    imageUrl: "/product/Zinc_phosphate.png",
+    overview:
+      "Zinc Phosphate is a fine white crystalline powder produced by reacting zinc oxide with phosphoric acid. It is prized as a non-toxic, low-hazard anti-corrosive pigment and is the industry-standard conversion coating for steel surface pre-treatment. SGSC supplies high-purity Zinc Phosphate for paints, coatings, and metal pre-treatment applications.",
+    technicalSpecs: [
+      { label: "Zn3(PO4)2 Assay",   value: "≥ 98.0%" },
+      { label: "Zn content",         value: "≥ 40.0%" },
+      { label: "P2O5 content",       value: "≥ 30.0%" },
+      { label: "Lead (Pb)",          value: "≤ 0.005%" },
+      { label: "Water solubles",     value: "≤ 0.5%" },
+      { label: "Appearance",         value: "White crystalline powder" },
+      { label: "Grade",              value: "Anti-corrosive Pigment / Industrial" },
+    ],
+    keyApplications: [
+      "Anti-corrosive pigment in primers & industrial paints",
+      "Phosphate conversion coating for steel pre-treatment",
+      "Automotive & appliance metal pre-treatment",
+      "Non-toxic replacement for lead & chromate pigments",
+      "Powder coating & electro-deposition primers",
+      "Marine & protective coating formulations",
+      "Corrosion resistance for fasteners & hardware",
+      "Anti-rust coatings for pipelines & structural steel",
+    ],
+    purityGrades: ["Anti-corrosive Pigment Grade", "Industrial Grade"],
+    industries: ["Paints & Coatings", "Automotive", "Steel Manufacturing", "Metal Finishing"],
+    packaging: "25 kg HDPE bags with inner PE liner • 50 kg drums • 500 kg jumbo bags • Min order: 500 kg",
   },
 ];
 

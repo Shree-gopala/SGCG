@@ -6,8 +6,7 @@ import { products, productCategories, type Product } from "@/data/products";
 import { Check, ArrowRight } from "lucide-react";
 
 const categoryLabels: Record<string, string> = {
-  "zinc-chemicals": "Zinc Chemicals",
-  "other-chemicals": "Other Chemicals",
+  "chemicals": "Chemicals",
   "metal-powders": "Metal Powders",
   "metal-ingots": "Metal Ingots",
 };
