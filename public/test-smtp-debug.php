@@ -49,7 +49,7 @@ try {
 
     $readResponse = function($socket, $expected) {
         $response = "";
-        while (substr($response, 3, 1) != ' ') {
+        while (true) {
             $line = fgets($socket, 512);
             if ($line === false) {
                 $info = stream_get_meta_data($socket);
@@ -60,6 +60,9 @@ try {
             }
             $response .= $line;
             echo "S: " . trim($line) . "\n";
+            if (substr($line, 3, 1) === ' ') {
+                break;
+            }
         }
         $code = substr($response, 0, 3);
         if ($code != $expected) {
