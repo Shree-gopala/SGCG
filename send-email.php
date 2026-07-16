@@ -249,8 +249,8 @@ function sendEmailViaSMTP($to, $subject, $body, $reply_to) {
         ]
     ]);
 
-    // Use stream_socket_client to apply the SSL stream context
-    $host_connection = ($smtp_port == 465 ? 'ssl://' : 'tcp://') . $ip;
+    // Use stream_socket_client to apply the SSL stream context (port is required in the connection string)
+    $host_connection = ($smtp_port == 465 ? 'ssl://' : 'tcp://') . $ip . ':' . $smtp_port;
     
     // Set connection timeout to 5 seconds
     $socket = @stream_socket_client($host_connection, $errno, $errstr, 5, STREAM_CLIENT_CONNECT, $context);
