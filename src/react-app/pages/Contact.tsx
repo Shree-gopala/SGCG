@@ -88,9 +88,12 @@ const handleSubmit = async (e: FormEvent) => {
       icon: <Mail className="w-5 h-5 sm:w-6 sm:h-6" />,
       title: "Email",
       details: (
-        <div className="text-sm font-semibold">
-          <a href="mailto:shreegopalasanwariachemicals@gmail.com" className="text-gray-600 hover:text-orange-500 transition-colors break-all">
-            shreegopalasanwariachemicals@gmail.com
+        <div className="text-sm font-semibold flex flex-col gap-1">
+          <a href="mailto:ghanshyam.kumar.sgsc@gmail.com" className="text-gray-600 hover:text-orange-500 transition-colors break-all">
+            ghanshyam.kumar.sgsc@gmail.com
+          </a>
+          <a href="mailto:info@shreegopalagroup.com" className="text-gray-600 hover:text-orange-500 transition-colors break-all">
+            info@shreegopalagroup.com
           </a>
         </div>
       ),
@@ -179,7 +182,7 @@ const handleSubmit = async (e: FormEvent) => {
           <ScrollReveal className="max-w-6xl mx-auto px-4 md:px-8">
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Contact Form */}
-              <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+              <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 h-fit">
                 <h2 className="font-serif text-2xl text-gray-900 font-bold mb-2">
                   Send us a Message
                 </h2>
@@ -287,7 +290,7 @@ const handleSubmit = async (e: FormEvent) => {
                 {/* Map */}
                 <div className="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110998.60215507964!2d75.65660889726564!3d29.15093599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391232d94aborced%3A0x7b0b4e4a9f8fa8e7!2sHisar%2C%20Haryana!5e0!3m2!1sen!2sin!4v1704067200000!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3434.9080271701546!2d75.79745651502447!3d29.118281182229562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!2m2!1s0x0%3A0x0!2zMjnCsDA3JzA1LjgiTiA3NcKwNDgnMDAuMSJF!5e0!3m2!1sen!2sin!4v1704067200000!5m2!1sen!2sin"
                     width="100%"
                     height="280"
                     style={{ border: 0 }}
@@ -310,7 +313,14 @@ const handleSubmit = async (e: FormEvent) => {
                       <MapPin className="w-5 h-5 text-orange-500 flex-shrink-0 mt-1" />
                       <div>
                         <h4 className="font-semibold text-gray-900 text-sm mb-1">Factory Unit – 2</h4>
-                        <p className="text-gray-600 text-sm">Village Kharar, Delhi Road, Tehsil Hisar, District Hisar, Haryana – 125001, India</p>
+                        <a 
+                          href="https://maps.app.goo.gl/xzttmwJBv5bRwjmz5"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-600 hover:text-orange-500 transition-colors text-sm"
+                        >
+                          Murabba No. 136, Khasra Nos. 1/1, 2/1, 2/2 & 1/2, Tehsil Hisar, District Hisar, Haryana – 125044, India
+                        </a>
                       </div>
                     </div>
                   </div>

@@ -108,7 +108,10 @@ export default function Footer() {
             </div>
             <div>
               <h5 className="font-semibold text-orange-400 text-sm mb-1">Email</h5>
-              <p className="text-sm text-gray-900 break-all">shreegopalasanwariachemicals@gmail.com</p>
+              <p className="text-sm text-gray-900 break-all leading-normal">
+                ghanshyam.kumar.sgsc@gmail.com<br />
+                info@shreegopalagroup.com
+              </p>
             </div>
           </div>
 
@@ -150,9 +153,9 @@ export default function Footer() {
             <div>
               <h5 className="font-semibold text-orange-400 text-sm mb-1">Factory Unit – 2</h5>
               <p className="text-sm text-gray-900 leading-relaxed">
-                Village Kharar, Delhi Road,<br />
-                Tehsil Hisar, District Hisar,<br />
-                Haryana – 125001, India
+                Murabba No. 136, Khasra Nos. 1/1,<br />
+                2/1, 2/2 & 1/2, Tehsil Hisar,<br />
+                District Hisar, Haryana – 125044, India
               </p>
             </div>
           </div>

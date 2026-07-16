@@ -114,15 +114,28 @@ try {
     $mailSent = false;
     $errorMessage = "";
 
+    // Client auto-responder subject
+    $clientSubject = "Thank you for contacting SGSC";
+    $clientBody = getClientEmailBody($name, $subject, $email, $phone, $message);
+
     try {
         // Try secure SMTP first to prevent email going to Spam
         $mailSent = sendEmailViaSMTP($recipientEmail, $emailSubject, $emailBody, $email);
+        
+        // If admin notification succeeds, send confirmation to customer
+        if ($mailSent) {
+            @sendEmailViaSMTP($email, $clientSubject, $clientBody, $recipientEmail);
+        }
     } catch (Exception $smtpException) {
         $errorMessage = $smtpException->getMessage();
         error_log("SMTP failed: " . $errorMessage . ". Falling back to mail().");
         
         // Fallback to PHP's standard mail() function
         $mailSent = sendEmailViaMailFunction($recipientEmail, $emailSubject, $emailBody, $email);
+        
+        if ($mailSent) {
+            @sendEmailViaMailFunction($email, $clientSubject, $clientBody, $recipientEmail);
+        }
     }
     
     if ($mailSent) {
@@ -142,6 +155,52 @@ try {
     echo json_encode([
         'error' => 'Error sending email: ' . $e->getMessage()
     ]);
+}
+
+/**
+ * Get Client auto-responder HTML body
+ */
+function getClientEmailBody($name, $subject, $email, $phone, $message) {
+    $phoneLine = !empty($phone) ? "<span style='color: #555;'>Phone:</span> " . htmlspecialchars($phone) . "<br />" : "";
+    return "
+    <html>
+    <head>
+        <style>
+            body { font-family: Arial, sans-serif; color: #333; line-height: 1.6; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { background-color: #f97316; color: white; padding: 15px; border-radius: 5px 5px 0 0; text-align: center; }
+            .content { border: 1px solid #ddd; padding: 20px; border-radius: 0 0 5px 5px; }
+            .footer { margin-top: 20px; font-size: 12px; color: #666; text-align: center; }
+            .details { background-color: #f9f9f9; padding: 15px; border-radius: 5px; margin: 15px 0; border: 1px solid #eee; }
+        </style>
+    </head>
+    <body>
+        <div class='container'>
+            <div class='header'>
+                <h2 style='margin: 0;'>Shree Gopala Sanwaria Chemicals</h2>
+            </div>
+            <div class='content'>
+                <p>Dear " . htmlspecialchars($name) . ",</p>
+                <p>Thank you for reaching out to us. We have received your query regarding <strong>\"" . htmlspecialchars($subject) . "\"</strong> and our team will get back to you shortly.</p>
+                
+                <div class='details'>
+                    <strong>Your Submitted Inquiry Details:</strong><br />
+                    <span style='color: #555;'>Name:</span> " . htmlspecialchars($name) . "<br />
+                    <span style='color: #555;'>Email:</span> " . htmlspecialchars($email) . "<br />
+                    " . $phoneLine . "
+                    <span style='color: #555;'>Message:</span><br />
+                    <p style='white-space: pre-wrap; margin: 5px 0 0 0; color: #444;'>" . htmlspecialchars($message) . "</p>
+                </div>
+                
+                <p>Best regards,<br /><strong>Technical Sales & Support Team</strong><br />Shree Gopala Sanwaria Chemicals</p>
+            </div>
+            <div class='footer'>
+                <p>Unit – 1: Delhi Road, Hisar, Haryana – 125001<br />Unit – 2: Murabba No. 136, Khasra Nos. 1/1, 2/1, 2/2 & 1/2, Tehsil Hisar, District Hisar, Haryana – 125044, India</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    ";
 }
 
 /**
