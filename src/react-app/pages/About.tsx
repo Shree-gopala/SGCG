@@ -1,6 +1,8 @@
 import { Link } from "react-router";
 import Header from "@/react-app/components/Header";
 import Footer from "@/react-app/components/Footer";
+import { ScrollReveal } from "@/react-app/components/ScrollReveal";
+import { BackgroundPattern } from "@/react-app/components/BackgroundPattern";
 import { 
   Check, 
   Award, 
@@ -111,8 +113,9 @@ export default function AboutPage() {
 
       <main className="flex-1">
         {/* Company Intro Section */}
-        <section className="py-12 md:py-16 bg-white">
-          <div className="max-w-6xl mx-auto px-4 md:px-8">
+        <section className="py-12 md:py-16 bg-white relative overflow-hidden">
+          <BackgroundPattern />
+          <ScrollReveal className="max-w-6xl mx-auto px-4 md:px-8">
             <div className="grid lg:grid-cols-12 gap-8 items-start">
               <div className="lg:col-span-8 space-y-6">
                 <div>
@@ -177,12 +180,12 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         {/* Our Vision Long Text Section */}
         <section className="py-12 md:py-16 bg-gray-50 border-y border-gray-100">
-          <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <ScrollReveal className="max-w-6xl mx-auto px-4 md:px-8">
             <div className="w-full">
               <span className="text-orange-500 text-sm font-bold tracking-wider uppercase block mb-3">
                 Future-Ready
@@ -208,12 +211,12 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         {/* Quality Assurance Section */}
         <section className="py-12 md:py-16 bg-white">
-          <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <ScrollReveal className="max-w-6xl mx-auto px-4 md:px-8">
             <div className="grid lg:grid-cols-2 gap-10 items-center">
               <div>
                 <span className="text-orange-500 text-sm font-bold tracking-wider uppercase">
@@ -257,12 +260,12 @@ export default function AboutPage() {
                 </ul>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         {/* Philosophy & R&D Section */}
         <section className="py-12 md:py-16 bg-gray-50 border-t border-gray-100">
-          <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <ScrollReveal className="max-w-6xl mx-auto px-4 md:px-8">
             <div className="grid md:grid-cols-2 gap-8">
               {/* Manufacturing Philosophy */}
               <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm flex flex-col justify-between">
@@ -303,12 +306,12 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         {/* Why Choose SGSC section */}
         <section className="py-12 md:py-16 bg-white">
-          <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <ScrollReveal className="max-w-6xl mx-auto px-4 md:px-8">
             <div className="text-center mb-10">
               <span className="text-orange-500 text-sm font-bold tracking-wider uppercase">
                 Our Strengths
@@ -331,12 +334,12 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         {/* Core Values Section */}
         <section className="py-12 md:py-16 bg-orange-50/20 border-y border-orange-100/40">
-          <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <ScrollReveal className="max-w-6xl mx-auto px-4 md:px-8">
             <div className="text-center mb-10">
               <span className="text-orange-600 text-sm font-bold tracking-wider uppercase">
                 Our Principles
@@ -370,12 +373,13 @@ export default function AboutPage() {
                 );
               })}
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         {/* Industries Served Section */}
-        <section className="py-12 md:py-16 bg-white">
-          <div className="max-w-5xl mx-auto px-4 md:px-8">
+        <section className="py-12 md:py-16 bg-white relative overflow-hidden">
+          <BackgroundPattern />
+          <ScrollReveal className="max-w-5xl mx-auto px-4 md:px-8">
             <div className="text-center mb-10">
               <span className="text-orange-500 text-sm font-bold tracking-wider uppercase">
                 Markets We Serve
@@ -392,13 +396,13 @@ export default function AboutPage() {
               {industriesServed.map((industry) => (
                 <div
                   key={industry}
-                  className="px-5 py-2.5 bg-gray-150 border border-gray-200 rounded-full text-gray-700 text-sm font-medium hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300 cursor-default"
+                  className="px-5 py-2.5 bg-white border border-gray-200 rounded-full text-gray-700 text-sm font-medium hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300 cursor-default shadow-sm hover:shadow-md"
                 >
                   {industry}
                 </div>
               ))}
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         {/* CTA Section */}

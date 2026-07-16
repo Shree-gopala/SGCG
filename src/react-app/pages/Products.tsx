@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router";
 import Header from "@/react-app/components/Header";
 import Footer from "@/react-app/components/Footer";
+import { ScrollReveal } from "@/react-app/components/ScrollReveal";
+import { BackgroundPattern } from "@/react-app/components/BackgroundPattern";
 import { products, productCategories, type Product } from "@/data/products";
 import { Check, ArrowRight } from "lucide-react";
 
@@ -86,14 +88,14 @@ export default function ProductsPage() {
 
         {/* Hero Section */}
         <section className="bg-white py-12 md:py-16">
-          <div className="max-w-6xl mx-auto px-4 md:px-8 text-center">
+          <ScrollReveal className="max-w-6xl mx-auto px-4 md:px-8 text-center">
             <span className="text-orange-500 text-sm font-bold tracking-wider uppercase">
               Our Product Range
             </span>
             <h2 className="font-serif text-3xl md:text-4xl text-gray-900 mt-3 mb-4">
               Quality Chemicals & Metals
             </h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto mb-10">
               Explore our comprehensive range of zinc chemicals, metal powders, and ingots 
               manufactured to the highest quality standards.
             </p>
@@ -117,12 +119,13 @@ export default function ProductsPage() {
                 ))}
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         {/* Products Grid Section */}
-        <section className="py-12 md:py-16">
-          <div className="max-w-6xl mx-auto px-4 md:px-8">
+        <section className="py-12 md:py-16 bg-white relative overflow-hidden">
+          <BackgroundPattern />
+          <ScrollReveal className="max-w-6xl mx-auto px-4 md:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
@@ -135,7 +138,7 @@ export default function ProductsPage() {
                 <p className="text-gray-500">No products found in this category.</p>
               </div>
             )}
-          </div>
+          </ScrollReveal>
         </section>
 
         {/* CTA Section */}

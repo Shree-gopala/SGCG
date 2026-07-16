@@ -9,6 +9,8 @@ import Header from "@/react-app/components/Header";
 import Footer from "@/react-app/components/Footer";
 import HeroSlider from "@/react-app/components/HeroSlider";
 import CTASection from "@/react-app/components/CTASection";
+import { ScrollReveal } from "@/react-app/components/ScrollReveal";
+import { BackgroundPattern } from "@/react-app/components/BackgroundPattern";
 import { stats, capabilities, industriesServed } from "@/data/company";
 import { products } from "@/data/products";
 
@@ -49,8 +51,7 @@ export default function HomePage() {
       <main className="relative z-20 bg-white">
         {/* About Preview Section - Overlapping */}
         <section className="bg-white pt-16 md:pt-24 pb-16 md:pb-20 rounded-t-3xl -mt-12 shadow-2xl relative overflow-hidden">
-          {/* Decorative background pattern */}
-          {/*<div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-bhagwa via-gold to-bhagwa animate-gradient" />*/}
+          <BackgroundPattern />
           
           {/* Floating decorative shapes */}
           <div className="absolute top-20 right-[10%] w-20 h-20 bg-gradient-to-br from-gray-200/40 to-gray-300/30 rounded-full blur-xl animate-float" />
@@ -59,15 +60,7 @@ export default function HomePage() {
           <div className="absolute bottom-20 left-[12%] w-12 h-12 border-2 border-gray-300/30 rounded-full animate-float" />
           <div className="absolute top-1/2 right-[8%] w-8 h-8 bg-gray-300/30 rounded-lg rotate-45 animate-float-slow" />
           
-          <div className="relative max-w-5xl mx-auto px-4 md:px-8">
-            {/* Section badge */}
-            {/*<div className="flex justify-center mb-8">
-              <span className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full border border-gray-200">
-                <span className="w-2 h-2 bg-bhagwa rounded-full animate-pulse" />
-                <span className="text-bhagwa-dark text-sm font-semibold tracking-wider uppercase">Since 1998</span>
-              </span>
-            </div>*/}
-            
+          <ScrollReveal className="relative max-w-5xl mx-auto px-4 md:px-8">
             {/* Centered About Text */}
             <div className="text-center mb-16">
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-gray-800 mb-10 leading-tight">
@@ -78,27 +71,6 @@ export default function HomePage() {
             <br className="hidden md:block" /><br className="hidden md:block" />Founded by Mr. Sandeep Bansal, our company was established with a pioneering vision: to convert metal scrap into valuable, high-purity industrial products — promoting recycling and sustainable manufacturing at a time when few in the sector were doing so.
               </p>
             </div>
-
-            {/* Stats with enhanced styling */}
-          {/*  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-              {stats.map((stat, index) => (
-                <div 
-                  key={stat.label} 
-                  className="relative group text-center p-6 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 card-lift"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-gray-100/50 to-gray-50/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="relative">
-                    <div className="font-serif text-4xl md:text-5xl stat-value font-bold mb-2">
-                      {stat.value}
-                    </div>
-                    <div className="text-gray-500 text-sm uppercase tracking-wider font-medium">
-                      {stat.label}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>*/}
 
             {/* About Button */}
             <div className="text-center">
@@ -121,7 +93,7 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </section>
         
         {/* Trust Badges / Certifications Marquee */}
@@ -165,7 +137,7 @@ export default function HomePage() {
           <div className="absolute top-20 left-[5%] w-32 h-32 bg-gray-200/30 rounded-full blur-3xl animate-float-slow" />
           <div className="absolute bottom-20 right-[8%] w-40 h-40 bg-gray-300/20 rounded-full blur-3xl animate-float" />
           
-          <div className="relative max-w-7xl mx-auto px-4 md:px-8">
+          <ScrollReveal className="relative max-w-7xl mx-auto px-4 md:px-8">
             <div className="text-center mb-14">
               {/*<span className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-gray-200 shadow-sm mb-4">
                 <span className="w-2 h-2 bg-bhagwa rounded-full" />
@@ -263,7 +235,7 @@ export default function HomePage() {
                           {/* Overlay gradient */}
                           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                           {/* Formula badge */}
-                          <div className={`absolute bottom-4 left-4 w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center   group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
+                          <div className={`absolute bottom-4 left-4 w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
                             <div className="text-center">
                               <span className="block text-white font-bold text-sm md:text-base">{product.formula}</span>
                               <span className="block text-white/80 text-[8px] uppercase tracking-wider">{product.form}</span>
@@ -304,11 +276,11 @@ export default function HomePage() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
-      {/* Why Industries Trust Us Section */}
-      <section className="sticky top-0 z-10 h-screen flex items-center overflow-hidden">
+        {/* Why Industries Trust Us Section */}
+        <section className="relative lg:sticky lg:top-0 z-10 min-h-screen lg:h-screen flex items-center py-16 lg:py-0 overflow-hidden">
           {/* Background Image */}
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -317,9 +289,9 @@ export default function HomePage() {
             }}
           />
           {/* Dark Gradient Overlay */}
-           <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-black/60" />
           
-          <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 py-20">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 py-10 md:py-20">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Content */}
               <div className="space-y-6">
@@ -372,11 +344,9 @@ export default function HomePage() {
         </section>
 
         {/* Industries Served Section */}
-        <section className="relative z-20 bg-white py-20 ">
-          {/* Subtle decorative elements */}
-          <div className="max-w-5xl mx-auto px-4 md:px-8" />
-          
-          <div className="relative max-w-5xl mx-auto px-4 md:px-8">
+        <section className="relative z-20 bg-white py-20 overflow-hidden border-t border-gray-100">
+          <BackgroundPattern />
+          <ScrollReveal className="relative max-w-5xl mx-auto px-4 md:px-8">
             <div className="text-center mb-10">
               <span className="text-bhagwa text-sm font-bold tracking-wider uppercase">
                 Industries We Serve
@@ -390,13 +360,13 @@ export default function HomePage() {
               {industriesServed.map((industry) => (
                 <div
                   key={industry}
-                  className="px-5 py-2.5 bg-gray-100 border border-gray-200 rounded-full text-gray-700 text-sm md:text-base font-medium hover:bg-bhagwa hover:text-white hover:border-bhagwa transition-all duration-300 cursor-default"
+                  className="px-5 py-2.5 bg-white border border-gray-200 rounded-full text-gray-700 text-sm md:text-base font-medium hover:bg-bhagwa hover:text-white hover:border-bhagwa transition-all duration-300 cursor-default shadow-sm hover:shadow-md"
                 >
                   {industry}
                 </div>
               ))}
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         {/* CTA Section */}

@@ -33,22 +33,6 @@ export default function Header() {
 
   return (
     <>
-      {/* Fixed Language Switcher - Top Right */}
-      <div className="fixed top-2 right-4 z-[60] flex gap-2 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-md border border-gray-100">
-        <button 
-          onClick={() => window.changeLanguageByGoogle('en')} 
-          className="text-[10px] md:text-xs font-bold text-gray-700 hover:text-[#FF9933] transition-colors"
-        >
-          ENGLISH
-        </button>
-        <span className="text-gray-300">|</span>
-        <button 
-          onClick={() => window.changeLanguageByGoogle('hi')} 
-          className="text-[10px] md:text-xs font-bold text-gray-700 hover:text-[#FF9933] transition-colors"
-        >
-          हिन्दी
-        </button>
-      </div>
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? "pt-2 px-2 md:px-4 lg:px-8" : "pt-4 px-4 md:px-8 lg:px-16"
     }`}>
@@ -68,12 +52,11 @@ export default function Header() {
                   className="h-8 w-24 md:h-14 md:w-48 w-auto hidden md:block object-contain "
                 />
                 <img 
-      src="/mobile-logo.png" // Yahan apne mobile logo ka path ya variable dalein
-      alt="Mobile Logo" 
-      className="block md:hidden h-10 w-20 object-contain"
-    />
+                  src="/mobile-logo.png" 
+                  alt="Mobile Logo" 
+                  className="block md:hidden h-10 w-20 object-contain"
+                />
               </div>
-              
             </Link>
 
             {/* God Image - Center */}
@@ -85,44 +68,79 @@ export default function Header() {
                   <img 
                     src={GOD_IMAGE_URL} 
                     alt="Shree Radha Krishna" 
-                    className="w-full h-full  object-cover object-center scale-110"
+                    className="w-full h-full object-cover object-center scale-110"
                   />
                 </div>
               </div>
             </div>
 
-            {/* Desktop Navigation - Right */}
-            <nav className="hidden md:flex items-center">
-              <ul className="flex items-center gap-4 lg:gap-6">
-                {navLinks.map((link) => (
-                  <li key={link.path}>
-                    <Link
-                      to={link.path}
-                      className={`relative text-m font-semibold tracking-wide transition-all duration-300 ${
-                        location.pathname === link.path
-                          ? "text-[#FF9933]"
-                          : "text-black-700 hover:text-[#FF9933]"
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+            {/* Desktop Navigation & Switcher - Right */}
+            <div className="hidden md:flex items-center gap-5 lg:gap-7">
+              <nav>
+                <ul className="flex items-center gap-4 lg:gap-6">
+                  {navLinks.map((link) => (
+                    <li key={link.path}>
+                      <Link
+                        to={link.path}
+                        className={`relative text-m font-semibold tracking-wide transition-all duration-300 ${
+                          location.pathname === link.path
+                            ? "text-[#FF9933]"
+                            : "text-black-700 hover:text-[#FF9933]"
+                        }`}
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+              <div className="h-4 w-px bg-gray-200" />
+              <div className="flex gap-2 text-xs font-bold text-gray-600 bg-gray-50 border border-gray-100 rounded-full px-3 py-1 shadow-sm">
+                <button 
+                  onClick={() => window.changeLanguageByGoogle('en')} 
+                  className="hover:text-[#FF9933] transition-colors"
+                >
+                  EN
+                </button>
+                <span className="text-gray-300">|</span>
+                <button 
+                  onClick={() => window.changeLanguageByGoogle('hi')} 
+                  className="hover:text-[#FF9933] transition-colors"
+                >
+                  हिं
+                </button>
+              </div>
+            </div>
 
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden text-gray-700 p-1.5 hover:bg-gray-100 rounded-full transition-colors"
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
+            {/* Mobile Actions - Right */}
+            <div className="flex md:hidden items-center gap-3">
+              <div className="flex gap-1.5 text-[10px] font-bold text-gray-600 bg-gray-50 border border-gray-100 rounded-full px-2.5 py-1">
+                <button 
+                  onClick={() => window.changeLanguageByGoogle('en')} 
+                  className="hover:text-[#FF9933] transition-colors"
+                >
+                  EN
+                </button>
+                <span className="text-gray-300">|</span>
+                <button 
+                  onClick={() => window.changeLanguageByGoogle('hi')} 
+                  className="hover:text-[#FF9933] transition-colors"
+                >
+                  हिं
+                </button>
+              </div>
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-gray-700 p-1.5 hover:bg-gray-100 rounded-full transition-colors"
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation Menu */}
         {mobileMenuOpen && (
           <nav className="md:hidden mt-2 bg-white rounded-2xl shadow-lg overflow-hidden">
             <ul className="flex flex-col py-2">

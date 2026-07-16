@@ -2,6 +2,8 @@ import { useState, FormEvent } from "react";
 import { Link } from "react-router";
 import Header from "@/react-app/components/Header";
 import Footer from "@/react-app/components/Footer";
+import { ScrollReveal } from "@/react-app/components/ScrollReveal";
+import { BackgroundPattern } from "@/react-app/components/BackgroundPattern";
 import { companyInfo } from "@/data/company";
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle, ArrowRight } from "lucide-react";
 
@@ -136,8 +138,9 @@ const handleSubmit = async (e: FormEvent) => {
 
       <main className="flex-1">
         {/* Contact Info Cards */}
-        <section className="py-12 md:py-16 bg-white">
-          <div className="max-w-6xl mx-auto px-4 md:px-8">
+        <section className="py-12 md:py-16 bg-white relative overflow-hidden">
+          <BackgroundPattern />
+          <ScrollReveal className="max-w-6xl mx-auto px-4 md:px-8">
             <div className="text-center mb-10">
               <span className="text-orange-500 text-sm font-bold tracking-wider uppercase">
                 Get In Touch
@@ -154,7 +157,7 @@ const handleSubmit = async (e: FormEvent) => {
               {contactInfo.map((info, index) => (
                 <div
                   key={index}
-                  className="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:border-orange-300 hover:shadow-lg transition-all duration-300"
+                  className="bg-white p-6 rounded-xl border border-gray-150 shadow-sm hover:border-orange-300 hover:shadow-lg transition-all duration-300"
                 >
                   <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center text-orange-500 mb-4">
                     {info.icon}
@@ -168,12 +171,12 @@ const handleSubmit = async (e: FormEvent) => {
                 </div>
               ))}
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         {/* Contact Form & Map Section */}
         <section className="py-12 md:py-16 bg-gray-50">
-          <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <ScrollReveal className="max-w-6xl mx-auto px-4 md:px-8">
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Contact Form */}
               <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
@@ -210,9 +213,8 @@ const handleSubmit = async (e: FormEvent) => {
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition-all"
                           placeholder="Your name"
-                          
                         />
-                        {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+                        {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1.5">Email Address *</label>
@@ -222,9 +224,9 @@ const handleSubmit = async (e: FormEvent) => {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition-all"
-                          placeholder="you@company.com"
+                          placeholder="your.email@example.com"
                         />
-                       {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+                        {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                       </div>
                     </div>
                     <div className="grid sm:grid-cols-2 gap-5">
@@ -246,13 +248,13 @@ const handleSubmit = async (e: FormEvent) => {
                           onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                           className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition-all bg-white"
                         >
-                          <option value="">Select a subject</option>
-                          <option value="quote">Request a Quote</option>
+                          <option value="">Select subject</option>
                           <option value="inquiry">Product Inquiry</option>
+                          <option value="quote">Request a Quote</option>
                           <option value="partnership">Partnership</option>
-                          <option value="support">Technical Support</option>
                           <option value="other">Other</option>
                         </select>
+                        {errors.subject && <p className="text-red-500 text-xs mt-1">{errors.subject}</p>}
                       </div>
                     </div>
                     <div>
@@ -263,8 +265,7 @@ const handleSubmit = async (e: FormEvent) => {
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition-all resize-none"
-                        placeholder="Tell us about your requirements..."
-
+                        placeholder="Describe your requirements..."
                       />
                       {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
                     </div>
@@ -272,19 +273,10 @@ const handleSubmit = async (e: FormEvent) => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full flex items-center justify-center gap-2 bg-orange-500 text-white py-4 rounded-lg font-semibold hover:bg-orange-600 transition-colors disabled:opacity-70"
+                      className="w-full inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-lg transition-colors shadow-md shadow-orange-500/20 disabled:opacity-50"
                     >
-                      {isSubmitting ? (
-                        <>
-                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          <Send className="w-5 h-5" />
-                          Send Message
-                        </>
-                      )}
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                      <Send className="w-4 h-4" />
                     </button>
                   </form>
                 )}
@@ -345,7 +337,7 @@ const handleSubmit = async (e: FormEvent) => {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         {/* CTA Section */}
