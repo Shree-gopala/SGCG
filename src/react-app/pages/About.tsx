@@ -71,8 +71,7 @@ export default function AboutPage() {
     "Customer-Centric Approach",
     "Sustainable Manufacturing Practices",
     "Complete Technical Documentation (COA, TDS & MSDS)",
-    "Customized Product Solutions",
-    "Dedicated After-Sales Support"
+    "Customized Product Solutions"
   ];
 
   const industriesServed = [

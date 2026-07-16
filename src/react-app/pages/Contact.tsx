@@ -75,17 +75,17 @@ const handleSubmit = async (e: FormEvent) => {
 };
   const contactInfo = [
     {
-      icon: <Phone className="w-6 h-6" />,
+      icon: <Phone className="w-5 h-5 sm:w-6 sm:h-6" />,
       title: "Phone",
       details: (
-        <div className="flex flex-col gap-1 text-sm font-semibold">
+        <div className="flex flex-col gap-0.5 text-sm font-semibold">
           <a href="tel:+919999665479" className="text-gray-600 hover:text-orange-500 transition-colors font-mono">+91 99996 65479</a>
           <a href="tel:+919310543479" className="text-gray-600 hover:text-orange-500 transition-colors font-mono">+91 93105 43479</a>
         </div>
       ),
     },
     {
-      icon: <Mail className="w-6 h-6" />,
+      icon: <Mail className="w-5 h-5 sm:w-6 sm:h-6" />,
       title: "Email",
       details: (
         <div className="text-sm font-semibold">
@@ -96,7 +96,7 @@ const handleSubmit = async (e: FormEvent) => {
       ),
     },
     {
-      icon: <MapPin className="w-6 h-6" />,
+      icon: <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />,
       title: "Address",
       details: (
         <div className="text-sm font-semibold">
@@ -112,7 +112,7 @@ const handleSubmit = async (e: FormEvent) => {
       ),
     },
     {
-      icon: <Clock className="w-6 h-6" />,
+      icon: <Clock className="w-5 h-5 sm:w-6 sm:h-6" />,
       title: "Business Hours",
       details: <span className="text-gray-600 text-sm font-semibold">Mon - Sat: 9:00 AM - 6:00 PM</span>,
     },
@@ -141,7 +141,7 @@ const handleSubmit = async (e: FormEvent) => {
         <section className="py-12 md:py-16 bg-white relative overflow-hidden">
           <BackgroundPattern />
           <ScrollReveal className="max-w-6xl mx-auto px-4 md:px-8">
-            <div className="text-center mb-10">
+            <div className="text-center mb-8 md:mb-10">
               <span className="text-orange-500 text-sm font-bold tracking-wider uppercase">
                 Get In Touch
               </span>
@@ -153,16 +153,16 @@ const handleSubmit = async (e: FormEvent) => {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {contactInfo.map((info, index) => (
                 <div
                   key={index}
-                  className="bg-white p-6 rounded-xl border border-gray-150 shadow-sm hover:border-orange-300 hover:shadow-lg transition-all duration-300"
+                  className="bg-white p-4 sm:p-6 rounded-xl border border-gray-150 shadow-sm hover:border-orange-300 hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center text-orange-500 mb-4">
+                  <div className="w-11 h-11 sm:w-14 sm:h-14 bg-orange-100 rounded-xl flex items-center justify-center text-orange-500 mb-3 sm:mb-4">
                     {info.icon}
                   </div>
-                  <h3 className="font-bold text-gray-900 text-lg mb-2">
+                  <h3 className="font-bold text-gray-900 text-lg mb-1 sm:mb-2">
                     {info.title}
                   </h3>
                   <div>

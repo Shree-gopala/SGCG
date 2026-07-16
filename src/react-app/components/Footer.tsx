@@ -55,7 +55,7 @@ export default function Footer() {
                   <span key={link.path} className="flex items-center">
                     <Link 
                       to={link.path} 
-                      className="text-sm text-gray-900 hover:text-white transition-colors"
+                      className="text-sm text-gray-900 hover:text-orange-500 transition-colors"
                     >
                       {link.name}
                     </Link>
@@ -85,44 +85,74 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-800 my-10" />
+        <div className="border-t border-gray-200/60 my-10" />
 
         {/* Contact Info Row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
           {/* Phone */}
-          <div className="flex items-start gap-4">
-            <div className="p-3 rounded-lg bg-gradient-to-r from-bhagwa to-bhagwa-light">
-              <Phone className="w-5 h-5 text-white" />
+          <div className="flex items-start gap-3">
+            <div className="p-2.5 rounded-lg bg-gradient-to-r from-bhagwa to-bhagwa-light flex-shrink-0">
+              <Phone className="w-4 h-4 text-white" />
             </div>
             <div>
               <h5 className="font-semibold text-orange-400 text-sm mb-1">Phone</h5>
-              <p className="text-sm text-gray-900">+91 99996 65479</p>
-              <p className="text-sm text-gray-900">+91 93105 43479</p>
+              <p className="text-sm text-gray-900 whitespace-nowrap">+91 99996 65479</p>
+              <p className="text-sm text-gray-900 whitespace-nowrap">+91 93105 43479</p>
             </div>
           </div>
 
           {/* Email */}
-          <div className="flex items-start gap-4">
-            <div className="p-3 rounded-lg bg-gradient-to-r from-bhagwa to-bhagwa-light">
-              <Mail className="w-5 h-5 text-white" />
+          <div className="flex items-start gap-3">
+            <div className="p-2.5 rounded-lg bg-gradient-to-r from-bhagwa to-bhagwa-light flex-shrink-0">
+              <Mail className="w-4 h-4 text-white" />
             </div>
             <div>
               <h5 className="font-semibold text-orange-400 text-sm mb-1">Email</h5>
-              <p className="text-sm text-gray-900">shreegopalasanwariachemicals@gmail.com</p>
+              <p className="text-sm text-gray-900 break-all">shreegopalasanwariachemicals@gmail.com</p>
             </div>
           </div>
 
-          {/* Address */}
-          <div className="flex items-start gap-4">
-            <div className="p-3 rounded-lg bg-gradient-to-r from-bhagwa to-bhagwa-light">
-              <MapPin className="w-5 h-5 text-white" />
+          {/* Corporate Office Address */}
+          <div className="flex items-start gap-3">
+            <div className="p-2.5 rounded-lg bg-gradient-to-r from-bhagwa to-bhagwa-light flex-shrink-0">
+              <MapPin className="w-4 h-4 text-white" />
             </div>
             <div>
               <h5 className="font-semibold text-orange-400 text-sm mb-1">Corporate Office</h5>
-              <p className="text-sm text-gray-900">
+              <p className="text-sm text-gray-900 leading-relaxed">
                 4th Floor, G-4, Pushkar Enclave,<br />
                 Paschim Vihar,<br />
                 New Delhi – 110063
+              </p>
+            </div>
+          </div>
+
+          {/* Factory Unit 1 */}
+          <div className="flex items-start gap-3">
+            <div className="p-2.5 rounded-lg bg-gradient-to-r from-bhagwa to-bhagwa-light flex-shrink-0">
+              <MapPin className="w-4 h-4 text-white" />
+            </div>
+            <div>
+              <h5 className="font-semibold text-orange-400 text-sm mb-1">Factory Unit – 1</h5>
+              <p className="text-sm text-gray-900 leading-relaxed">
+                Near Jindal Supreme India Limited,<br />
+                Delhi Road, Hisar,<br />
+                Haryana – 125001
+              </p>
+            </div>
+          </div>
+
+          {/* Factory Unit 2 */}
+          <div className="flex items-start gap-3">
+            <div className="p-2.5 rounded-lg bg-gradient-to-r from-bhagwa to-bhagwa-light flex-shrink-0">
+              <MapPin className="w-4 h-4 text-white" />
+            </div>
+            <div>
+              <h5 className="font-semibold text-orange-400 text-sm mb-1">Factory Unit – 2</h5>
+              <p className="text-sm text-gray-900 leading-relaxed">
+                Village Kharar, Delhi Road,<br />
+                Tehsil Hisar, District Hisar,<br />
+                Haryana – 125001, India
               </p>
             </div>
           </div>
