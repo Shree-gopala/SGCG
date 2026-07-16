@@ -71,20 +71,15 @@ export default function ProductsPage() {
 
       <main className="flex-1">
         {/* Banner Section */}
-        <section className="relative pt-32 pb-12 md:pt-44 md:pb-16 overflow-hidden">
-          <div 
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=1600')" }}
-          />
-          <div className="absolute inset-0 bg-gray-900/70" />
+        <section className="relative pt-32 pb-12 md:pt-40 md:pb-16 bg-gradient-to-r from-orange-50 via-white to-orange-100/40 border-b border-orange-100/50 overflow-hidden">
           <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 text-center">
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white font-bold mb-3">
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-gray-900 font-bold mb-3 animate-fade-in-up">
               Our Products
             </h1>
-            <nav className="flex items-center justify-center gap-2 text-white/80 text-sm">
-              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+            <nav className="flex items-center justify-center gap-2 text-gray-500 text-sm animate-fade-in-up animation-delay-200">
+              <Link to="/" className="hover:text-orange-500 transition-colors">Home</Link>
               <span>›</span>
-              <span className="text-orange-400">Products</span>
+              <span className="text-orange-600 font-medium">Products</span>
             </nav>
           </div>
         </section>
@@ -146,16 +141,16 @@ export default function ProductsPage() {
         {/* CTA Section */}
         <section className="py-12 md:py-20 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4 md:px-8">
-            {/* Dark rounded card */}
-            <div className="bg-gray-900 rounded-3xl overflow-hidden">
+            {/* Light rounded card */}
+            <div className="bg-gradient-to-r from-orange-50/60 via-orange-50/80 to-orange-100/30 border border-orange-100/60 rounded-3xl overflow-hidden shadow-sm">
               <div className="flex flex-col lg:flex-row items-stretch">
                 {/* Left - Text Content */}
                 <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
                   <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold italic leading-tight mb-6">
-                    <span className="text-white">Need </span>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500">Custom</span>
+                    <span className="text-gray-900">Need </span>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600">Custom</span>
                     <br />
-                    <span className="text-white">Specifications?</span>
+                    <span className="text-gray-900">Specifications?</span>
                   </h2>
                   <Link
                     to="/contact"
@@ -171,7 +166,7 @@ export default function ProductsPage() {
                     <img
                       src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&auto=format&fit=crop&q=80"
                       alt="Chemical manufacturing facility"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover animate-ken-burns"
                     />
                   </div>
                 </div>

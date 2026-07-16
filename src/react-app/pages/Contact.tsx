@@ -121,20 +121,15 @@ const handleSubmit = async (e: FormEvent) => {
       <Header />
 
       {/* Banner Section */}
-      <section className="relative pt-32 pb-12 md:pt-48 md:pb-16 overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=1600')" }}
-        />
-        <div className="absolute inset-0 bg-gray-900/70" />
+      <section className="relative pt-32 pb-12 md:pt-40 md:pb-16 bg-gradient-to-r from-orange-50 via-white to-orange-100/40 border-b border-orange-100/50 overflow-hidden">
         <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 text-center">
-          <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white font-bold mb-3">
+          <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-gray-900 font-bold mb-3 animate-fade-in-up">
             Contact Us
           </h1>
-          <nav className="flex items-center justify-center gap-2 text-white/80 text-sm">
-            <Link to="/" className="hover:text-white transition-colors">Home</Link>
+          <nav className="flex items-center justify-center gap-2 text-gray-500 text-sm animate-fade-in-up animation-delay-200">
+            <Link to="/" className="hover:text-orange-500 transition-colors">Home</Link>
             <span>›</span>
-            <span className="text-orange-400">Contact Us</span>
+            <span className="text-orange-600 font-medium">Contact Us</span>
           </nav>
         </div>
       </section>
@@ -354,13 +349,13 @@ const handleSubmit = async (e: FormEvent) => {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-gray-900 py-10">
+        <section className="bg-gradient-to-r from-orange-50/50 via-orange-50 to-orange-100/20 border-t border-orange-100/40 py-10">
           <div className="max-w-6xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <h2 className="text-xl md:text-2xl text-white font-bold">
+              <h2 className="text-xl md:text-2xl text-gray-900 font-bold">
                 Need Industrial Chemical Solutions?
               </h2>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-600 text-sm">
                 Get in touch with our experts today.
               </p>
             </div>

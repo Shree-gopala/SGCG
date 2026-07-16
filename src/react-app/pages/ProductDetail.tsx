@@ -41,38 +41,33 @@ export default function ProductDetailPage() {
 
       <main className="flex-1">
         {/* Hero Banner */}
-        <section className="relative pt-32 pb-14 md:pt-44 md:pb-18 overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=1600')" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/60" />
+        <section className="relative pt-32 pb-14 md:pt-40 md:pb-16 bg-gradient-to-r from-orange-50 via-white to-orange-100/40 border-b border-orange-100/50 overflow-hidden">
           <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8">
-            <nav className="flex items-center gap-2 text-white/60 text-sm mb-4">
-              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+            <nav className="flex items-center gap-2 text-gray-500 text-sm mb-4 animate-fade-in-up">
+              <Link to="/" className="hover:text-orange-500 transition-colors">Home</Link>
               <ChevronRight className="w-3 h-3" />
-              <Link to="/products" className="hover:text-white transition-colors">Products</Link>
+              <Link to="/products" className="hover:text-orange-500 transition-colors">Products</Link>
               <ChevronRight className="w-3 h-3" />
-              <span className="text-orange-400">{product.name}</span>
+              <span className="text-orange-600 font-medium">{product.name}</span>
             </nav>
-            <div className="flex flex-wrap items-center gap-3 mb-3">
+            <div className="flex flex-wrap items-center gap-3 mb-3 animate-fade-in-up animation-delay-100">
               <span className="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
                 {categoryName}
               </span>
-              <span className="bg-white/10 text-white/90 text-sm font-mono px-3 py-1 rounded-full">
+              <span className="bg-orange-50 text-orange-800 border border-orange-100 text-sm font-mono px-3 py-1 rounded-full">
                 {product.formula}
               </span>
-              <span className="bg-white/10 text-white/70 text-xs px-3 py-1 rounded-full">
+              <span className="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">
                 {product.cas}
               </span>
             </div>
-            <h1 className="font-serif text-3xl md:text-5xl text-white font-bold mb-2">
+            <h1 className="font-serif text-3xl md:text-5xl text-gray-900 font-bold mb-2 animate-fade-in-up animation-delay-200">
               {product.name}
             </h1>
             {product.subtitle && (
-              <p className="text-white/80 text-sm font-mono mb-1">{product.subtitle}</p>
+              <p className="text-gray-600 text-sm font-mono mb-1 animate-fade-in-up animation-delay-300">{product.subtitle}</p>
             )}
-            <p className="text-white/60 text-sm">{product.form}</p>
+            <p className="text-gray-500 text-sm animate-fade-in-up animation-delay-300">{product.form}</p>
           </div>
         </section>
 
@@ -148,19 +143,19 @@ export default function ProductDetailPage() {
                 </div>
 
                 {/* QUALITY ASSURANCE + BADGES */}
-                <div className="bg-gray-900 rounded-2xl p-7">
+                <div className="bg-gradient-to-br from-orange-50/60 to-orange-100/30 border border-orange-100/50 rounded-2xl p-7 shadow-sm">
                   <div className="flex items-center gap-2 mb-4">
                     <div className="w-1 h-6 bg-orange-500 rounded-full" />
-                    <h2 className="font-bold text-white text-lg uppercase tracking-wide">Quality Assurance</h2>
+                    <h2 className="font-bold text-gray-900 text-lg uppercase tracking-wide">Quality Assurance</h2>
                   </div>
-                  <p className="text-gray-400 text-sm leading-relaxed mb-5">
+                  <p className="text-gray-600 text-sm leading-relaxed mb-5">
                     Every batch of {product.name} undergoes rigorous quality testing in our in-house laboratory before dispatch. We provide Certificate of Analysis (COA) and Technical Data Sheets (TDS) with every shipment.
                   </p>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     {["BIS Certified", "COA with Every Batch", "PAN India Delivery", "Custom Grades"].map((badge) => (
-                      <div key={badge} className="flex flex-col items-center gap-1.5 bg-white/10 rounded-xl px-3 py-3 text-center">
-                        <Check className="w-5 h-5 text-orange-400" />
-                        <span className="text-white text-xs font-medium leading-tight">{badge}</span>
+                      <div key={badge} className="flex flex-col items-center gap-1.5 bg-white border border-orange-100/40 shadow-sm rounded-xl px-3 py-3 text-center">
+                        <Check className="w-5 h-5 text-orange-600" />
+                        <span className="text-gray-800 text-xs font-semibold leading-tight">{badge}</span>
                       </div>
                     ))}
                   </div>
@@ -307,12 +302,12 @@ export default function ProductDetailPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-gray-900 py-12 md:py-16">
+        <section className="bg-gradient-to-r from-orange-50/50 via-orange-50 to-orange-100/20 border-t border-orange-100/40 py-12 md:py-16">
           <div className="max-w-4xl mx-auto px-4 md:px-8 text-center">
-            <h2 className="font-serif text-2xl md:text-3xl text-white font-bold mb-3">
+            <h2 className="font-serif text-2xl md:text-3xl text-gray-900 font-bold mb-3">
               Need This Product in Bulk?
             </h2>
-            <p className="text-gray-400 mb-6 max-w-xl mx-auto">
+            <p className="text-gray-600 mb-6 max-w-xl mx-auto">
               We offer competitive pricing for bulk orders with flexible delivery options across India. Contact our sales team for a customized quote.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
@@ -325,7 +320,7 @@ export default function ProductDetailPage() {
               </Link>
               <Link
                 to="/products"
-                className="inline-flex items-center gap-2 border border-white/30 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/10 transition-colors"
+                className="inline-flex items-center gap-2 border border-orange-200 text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-orange-50 transition-colors"
               >
                 View All Products
               </Link>

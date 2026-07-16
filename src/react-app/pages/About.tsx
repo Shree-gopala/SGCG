@@ -96,20 +96,15 @@ export default function AboutPage() {
       <Header />
       
       {/* Banner Section */}
-      <section className="relative pt-32 pb-12 md:pt-48 md:pb-16 overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=1600')" }}
-        />
-        <div className="absolute inset-0 bg-gray-900/70" />
+      <section className="relative pt-32 pb-12 md:pt-40 md:pb-16 bg-gradient-to-r from-orange-50 via-white to-orange-100/40 border-b border-orange-100/50 overflow-hidden">
         <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 text-center">
-          <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white font-bold mb-3">
+          <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-gray-900 font-bold mb-3 animate-fade-in-up">
             About Us
           </h1>
-          <nav className="flex items-center justify-center gap-2 text-white/80 text-sm">
-            <Link to="/" className="hover:text-white transition-colors">Home</Link>
+          <nav className="flex items-center justify-center gap-2 text-gray-500 text-sm animate-fade-in-up animation-delay-200">
+            <Link to="/" className="hover:text-orange-500 transition-colors">Home</Link>
             <span>›</span>
-            <span className="text-orange-400">About Us</span>
+            <span className="text-orange-600 font-medium">About Us</span>
           </nav>
         </div>
       </section>
@@ -153,23 +148,23 @@ export default function AboutPage() {
 
               {/* Sidebar with Quick Stats */}
               <div className="lg:col-span-4 lg:sticky lg:top-28 space-y-6">
-                <div className="bg-gray-900 rounded-3xl p-8 text-white relative overflow-hidden">
+                <div className="bg-gradient-to-br from-orange-50/60 to-orange-100/30 border border-orange-100/50 rounded-3xl p-8 text-gray-900 relative overflow-hidden shadow-sm">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-full blur-2xl" />
                   <h3 className="font-serif text-xl font-bold mb-2">Shree Gopala Sanwaria Chemicals</h3>
-                  <p className="text-orange-400 text-sm mb-6">Serving Industries Since 1998</p>
+                  <p className="text-orange-600 text-sm font-semibold mb-6">Serving Industries Since 1998</p>
                   
                   <div className="space-y-4">
                     <div className="border-l-4 border-orange-500 pl-4 py-1">
-                      <p className="text-2xl font-bold text-white">25+</p>
-                      <p className="text-gray-400 text-xs uppercase tracking-wider">Years of Excellence</p>
+                      <p className="text-2xl font-bold text-gray-900">25+</p>
+                      <p className="text-gray-600 text-xs uppercase tracking-wider">Years of Excellence</p>
                     </div>
                     <div className="border-l-4 border-orange-500 pl-4 py-1">
-                      <p className="text-2xl font-bold text-white">15+</p>
-                      <p className="text-gray-400 text-xs uppercase tracking-wider">Key Industries Served</p>
+                      <p className="text-2xl font-bold text-gray-900">15+</p>
+                      <p className="text-gray-600 text-xs uppercase tracking-wider">Key Industries Served</p>
                     </div>
                     <div className="border-l-4 border-orange-500 pl-4 py-1">
-                      <p className="text-2xl font-bold text-white">100%</p>
-                      <p className="text-gray-400 text-xs uppercase tracking-wider">Quality Assured</p>
+                      <p className="text-2xl font-bold text-gray-900">100%</p>
+                      <p className="text-gray-600 text-xs uppercase tracking-wider">Quality Assured</p>
                     </div>
                   </div>
                 </div>
@@ -188,7 +183,7 @@ export default function AboutPage() {
         {/* Our Vision Long Text Section */}
         <section className="py-12 md:py-16 bg-gray-50 border-y border-gray-100">
           <div className="max-w-6xl mx-auto px-4 md:px-8">
-            <div className="max-w-3xl">
+            <div className="w-full">
               <span className="text-orange-500 text-sm font-bold tracking-wider uppercase block mb-3">
                 Future-Ready
               </span>
@@ -340,13 +335,13 @@ export default function AboutPage() {
         </section>
 
         {/* Core Values Section */}
-        <section className="py-12 md:py-16 bg-gray-900">
+        <section className="py-12 md:py-16 bg-orange-50/20 border-y border-orange-100/40">
           <div className="max-w-6xl mx-auto px-4 md:px-8">
             <div className="text-center mb-10">
-              <span className="text-orange-400 text-sm font-bold tracking-wider uppercase">
+              <span className="text-orange-600 text-sm font-bold tracking-wider uppercase">
                 Our Principles
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl text-white font-bold mt-2">
+              <h2 className="font-serif text-3xl md:text-4xl text-gray-900 font-bold mt-2">
                 Our Core Values
               </h2>
             </div>
@@ -407,13 +402,13 @@ export default function AboutPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-gray-900 py-10">
+        <section className="bg-gradient-to-r from-orange-50/50 via-orange-50 to-orange-100/20 border-t border-orange-100/40 py-10">
           <div className="max-w-6xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <h2 className="text-xl md:text-2xl text-white font-bold">
+              <h2 className="text-xl md:text-2xl text-gray-900 font-bold">
                 Need Industrial Chemical Solutions?
               </h2>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-600 text-sm">
                 Get in touch with our experts today.
               </p>
             </div>
