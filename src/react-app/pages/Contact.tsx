@@ -325,21 +325,21 @@ const handleSubmit = async (e: FormEvent) => {
                 </div>
 
                 {/* Company Info Card */}
-                <div className="bg-gray-800 p-8 rounded-2xl text-white">
+                <div className="bg-gradient-to-br from-orange-50/60 to-orange-100/30 border border-orange-100/50 p-8 rounded-2xl text-gray-900 shadow-sm">
                   <h3 className="font-serif text-xl font-bold mb-2">{companyInfo.shortName}</h3>
-                  <p className="text-gray-400 text-sm mb-4">{companyInfo.name}</p>
-                  <p className="text-gray-300 leading-relaxed mb-6">
+                  <p className="text-orange-600 font-semibold text-sm mb-4">{companyInfo.name}</p>
+                  <p className="text-gray-600 leading-relaxed mb-6">
                     With over {companyInfo.yearsOfExperience} years of experience in chemical manufacturing, 
                     we are your trusted partner for high-quality zinc chemicals, metal powders, and ingots.
                   </p>
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white/10 rounded-xl p-4 text-center">
-                      <p className="text-3xl font-bold text-orange-400">{companyInfo.yearsOfExperience}+</p>
-                      <p className="text-gray-400 text-xs uppercase tracking-wider">Years</p>
+                    <div className="bg-white border border-orange-100/40 shadow-sm rounded-xl p-4 text-center">
+                      <p className="text-3xl font-bold text-orange-600">{companyInfo.yearsOfExperience}+</p>
+                      <p className="text-gray-500 text-xs uppercase tracking-wider">Years</p>
                     </div>
-                    <div className="bg-white/10 rounded-xl p-4 text-center">
-                      <p className="text-3xl font-bold text-orange-400">{companyInfo.productLines}+</p>
-                      <p className="text-gray-400 text-xs uppercase tracking-wider">Products</p>
+                    <div className="bg-white border border-orange-100/40 shadow-sm rounded-xl p-4 text-center">
+                      <p className="text-3xl font-bold text-orange-600">{companyInfo.productLines}+</p>
+                      <p className="text-gray-500 text-xs uppercase tracking-wider">Products</p>
                     </div>
                   </div>
                 </div>

@@ -130,14 +130,14 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="bg-gray-950">
+      <div className="bg-gray-100 border-t border-gray-200/50">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-2">
-            <p className="text-xs text-white/90">
+            <p className="text-xs text-gray-600">
               Copyright © {new Date().getFullYear()} Shree Gopala Sanwaria Chemicals. All Rights Reserved.
             </p>
-            <p className="text-xs text-white/80">
-              Made By <span className="text-orange-500">AHD Web Services</span>
+            <p className="text-xs text-gray-500">
+              Made By <span className="text-orange-600 font-semibold">AHD Web Services</span>
             </p>
           </div>
         </div>

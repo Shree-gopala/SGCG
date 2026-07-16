@@ -164,7 +164,7 @@ export default function ProductsPage() {
                 <div className="lg:w-[45%] p-4 md:p-6 lg:p-8">
                   <div className="h-64 lg:h-full min-h-[280px] rounded-2xl overflow-hidden">
                     <img
-                      src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&auto=format&fit=crop&q=80"
+                      src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800"
                       alt="Chemical manufacturing facility"
                       className="w-full h-full object-cover animate-ken-burns"
                     />
