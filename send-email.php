@@ -265,7 +265,7 @@ function sendEmailViaSMTP($to, $subject, $body, $reply_to) {
     // Helper to read SMTP server responses with timeout checks
     $readResponse = function($socket, $expected) {
         $response = "";
-        while (substr($response, 3, 1) != ' ') {
+        while (true) {
             $line = fgets($socket, 512);
             if ($line === false) {
                 $info = stream_get_meta_data($socket);
@@ -275,6 +275,9 @@ function sendEmailViaSMTP($to, $subject, $body, $reply_to) {
                 break;
             }
             $response .= $line;
+            if (substr($line, 3, 1) === ' ') {
+                break;
+            }
         }
         $code = substr($response, 0, 3);
         if ($code != $expected) {
