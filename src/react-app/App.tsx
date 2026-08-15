@@ -5,6 +5,7 @@ import ProductsPage from "@/react-app/pages/Products";
 import ProductDetailPage from "@/react-app/pages/ProductDetail";
 import ContactPage from "@/react-app/pages/Contact";
 import ScrollToTop from "@/react-app/components/ScrollToTop";
+import WhatsAppButton from "@/react-app/components/WhatsAppButton";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/products/:id" element={<ProductDetailPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
+      <WhatsAppButton />
     </Router>
   );
 }

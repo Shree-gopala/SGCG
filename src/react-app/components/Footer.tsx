@@ -1,6 +1,6 @@
 import { Link } from "react-router";
-import { Phone, Mail, MapPin } from "lucide-react";
 import { products } from "@/data/products";
+import LogoMark from "./LogoMark";
 import logo from "/logo.png";
 const LOGO_URL = "/logo.png";
 
@@ -16,65 +16,71 @@ export default function Footer() {
   const keyProducts = products.slice(0, 8).map(p => p.name);
 
   return (
-    <footer className="bg-[#FFFBF5] text-white relative z-20">
+    <footer className="bg-ink text-white relative z-20 overflow-hidden">
+      <span
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute -bottom-2 left-0 right-0 text-center font-serif italic font-semibold leading-none text-[clamp(70px,14vw,190px)] text-white/[.05] whitespace-nowrap overflow-hidden"
+      >
+        Shree Gopala
+      </span>
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
           {/* Company Info - Left */}
-          <div className="lg:col-span-4">
-            <div className="flex items-center gap-4 mb-5">
-              <img 
-                src={LOGO_URL} 
-                alt="SGSC Logo" 
-                className="h-16 w-auto p-1"
-              />
-            {/*  <div> 
-                <h3 className="font-serif text-xl font-bold text-white">SGSC</h3>
-                <p className="text-xs text-gray-400">Shree Gopala Sanwaria Chemicals</p>
-              </div>*/}
+          <div className="lg:col-span-4 min-w-0">
+            <div className="flex items-center gap-3 mb-5">
+              <LogoMark src={LOGO_URL} className="h-12" />
+              <p className="font-serif font-semibold text-[#F5EEDC] text-base leading-[1.2] tracking-[.2px]">
+                Shree Gopala<br />Sanwaria Chemicals
+              </p>
             </div>
-            <p className="text-sm text-gray-900 leading-relaxed">
-              Supplying and manufacturing high-quality zinc chemicals, metal powders, 
-              and industrial raw materials, driving innovation and excellence in 
+            <p className="text-xs text-[#CFC8B4] leading-relaxed">
+              Supplying and manufacturing high-quality zinc chemicals, metal powders,
+              and industrial raw materials, driving innovation and excellence in
               the chemical industry since 1998.
             </p>
           </div>
 
-          {/* Key Products - Center */}
-          <div className="lg:col-span-5">
-            <h4 className="font-bold text-orange-400 text-base mb-4">Key Products</h4>
-            <p className="text-sm text-gray-900 leading-relaxed">
+          {/* Key Products */}
+          <div className="lg:col-span-4">
+            <h4 className="font-serif italic font-semibold text-[#FFC24B] text-lg mb-3">Key Products</h4>
+            <p className="text-xs text-[#CFC8B4] leading-relaxed">
               {keyProducts.join(" | ")}
             </p>
+            <p className="mt-2.5">
+              <Link to="/products" className="text-[#FFC24B] font-extrabold text-xs hover:underline">
+                View all 20 products →
+              </Link>
+            </p>
+          </div>
 
-            {/* Quick Links */}
-            <div className="mt-8">
-              <h4 className="font-bold text-orange-400 text-base mb-4">Quick Links</h4>
-              <div className="flex flex-wrap items-center gap-x-1 gap-y-1">
-                {quickLinks.map((link, index) => (
-                  <span key={link.path} className="flex items-center">
-                    <Link 
-                      to={link.path} 
-                      className="text-sm text-gray-900 hover:text-orange-500 transition-colors"
-                    >
-                      {link.name}
-                    </Link>
-                    {index < quickLinks.length - 1 && (
-                      <span className="text-gray-600 mx-2">|</span>
-                    )}
-                  </span>
-                ))}
-              </div>
-            </div>
+          {/* Quick Links */}
+          <div className="lg:col-span-2">
+            <h4 className="font-serif italic font-semibold text-[#FFC24B] text-lg mb-3">Quick Links</h4>
+            <ul className="space-y-2">
+              {quickLinks.map((link) => (
+                <li key={link.path}>
+                  <Link
+                    to={link.path}
+                    className="text-xs text-[#CFC8B4] hover:text-saf transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Company Brochure - Right */}
-          <div className="lg:col-span-3">
-            <h4 className="font-bold text-orange-400 text-base mb-4">Company Brochure</h4>
+          <div className="lg:col-span-2">
+            <h4 className="font-serif italic font-semibold text-[#FFC24B] text-lg mb-3">Company Brochure</h4>
+            <p className="text-xs text-[#CFC8B4] leading-relaxed mb-3.5">
+              Download our complete product catalogue (PDF).
+            </p>
             <a
               href="/SGSC_Product_Brochure.pdf"
               download="SGSC_Product_Brochure.pdf"
-              className="inline-flex items-center gap-2 border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-semibold px-6 py-2.5 rounded transition-all duration-300 text-sm"
+              className="inline-flex items-center gap-2 bg-sgrad text-[#231303] font-extrabold px-5 py-2 rounded-full transition-all duration-300 text-xs hover:-translate-y-0.5 shadow-glow"
             >
               Download Now
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -85,45 +91,45 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-200/60 my-10" />
+        <div className="border-t border-white/10 my-10" />
 
         {/* Contact Info Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-4">
           {/* Phone */}
           <div className="flex items-start gap-3">
-            <div className="p-2.5 rounded-lg bg-gradient-to-r from-bhagwa to-bhagwa-light flex-shrink-0">
-              <Phone className="w-4 h-4 text-white" />
+            <div className="w-9 h-9 rounded-full bg-[rgba(255,196,75,.08)] border border-white/10 flex-shrink-0 flex items-center justify-center text-base">
+              📞
             </div>
             <div>
-              <h5 className="font-semibold text-orange-400 text-sm mb-1">Phone</h5>
-              <p className="text-sm text-gray-900 whitespace-nowrap">+91 99996 65479</p>
-              <p className="text-sm text-gray-900 whitespace-nowrap">+91 93105 43479</p>
+              <h5 className="font-serif italic font-semibold text-[#FFC24B] text-sm mb-1">Phone</h5>
+              <p className="text-xs text-[#CFC8B4] whitespace-nowrap">+91 99996 65479</p>
+              <p className="text-xs text-[#CFC8B4] whitespace-nowrap">+91 93105 43479</p>
             </div>
           </div>
 
           {/* Email */}
-          <div className="flex items-start gap-3">
-            <div className="p-2.5 rounded-lg bg-gradient-to-r from-bhagwa to-bhagwa-light flex-shrink-0">
-              <Mail className="w-4 h-4 text-white" />
+          <div className="flex items-start gap-3 lg:col-span-2">
+            <div className="w-9 h-9 rounded-full bg-[rgba(255,196,75,.08)] border border-white/10 flex-shrink-0 flex items-center justify-center text-base">
+              ✉️
             </div>
-            <div>
-              <h5 className="font-semibold text-orange-400 text-sm mb-1">Email</h5>
-              <p className="text-sm text-gray-900 break-all leading-normal">
-                ghanshyam.kumar.sgsc@gmail.com<br />
-                info@shreegopalagroup.com<br />
-                shreegopalasanwariachemicals@gmail.com
+            <div className="min-w-0">
+              <h5 className="font-serif italic font-semibold text-[#FFC24B] text-sm mb-1">Email</h5>
+              <p className="text-xs text-[#CFC8B4] leading-normal space-y-0.5">
+                <a href="mailto:ghanshyam.kumar.sgsc@gmail.com" className="block whitespace-nowrap hover:text-saf transition-colors">ghanshyam.kumar.sgsc@gmail.com</a>
+                <a href="mailto:info@shreegopalagroup.com" className="block whitespace-nowrap hover:text-saf transition-colors">info@shreegopalagroup.com</a>
+                <a href="mailto:shreegopalasanwariachemicals@gmail.com" className="block whitespace-nowrap hover:text-saf transition-colors">shreegopalasanwariachemicals@gmail.com</a>
               </p>
             </div>
           </div>
 
           {/* Corporate Office Address */}
           <div className="flex items-start gap-3">
-            <div className="p-2.5 rounded-lg bg-gradient-to-r from-bhagwa to-bhagwa-light flex-shrink-0">
-              <MapPin className="w-4 h-4 text-white" />
+            <div className="w-9 h-9 rounded-full bg-[rgba(255,196,75,.08)] border border-white/10 flex-shrink-0 flex items-center justify-center text-base">
+              🏢
             </div>
             <div>
-              <h5 className="font-semibold text-orange-400 text-sm mb-1">Corporate Office</h5>
-              <p className="text-sm text-gray-900 leading-relaxed">
+              <h5 className="font-serif italic font-semibold text-[#FFC24B] text-sm mb-1">Corporate Office</h5>
+              <p className="text-xs text-[#CFC8B4] leading-relaxed">
                 4th Floor, G-4, Pushkar Enclave,<br />
                 Paschim Vihar,<br />
                 New Delhi – 110063
@@ -133,12 +139,12 @@ export default function Footer() {
 
           {/* Factory Unit 1 */}
           <div className="flex items-start gap-3">
-            <div className="p-2.5 rounded-lg bg-gradient-to-r from-bhagwa to-bhagwa-light flex-shrink-0">
-              <MapPin className="w-4 h-4 text-white" />
+            <div className="w-9 h-9 rounded-full bg-[rgba(255,196,75,.08)] border border-white/10 flex-shrink-0 flex items-center justify-center text-base">
+              🏭
             </div>
             <div>
-              <h5 className="font-semibold text-orange-400 text-sm mb-1">Factory Unit – 1</h5>
-              <p className="text-sm text-gray-900 leading-relaxed">
+              <h5 className="font-serif italic font-semibold text-[#FFC24B] text-sm mb-1">Factory Unit – 1</h5>
+              <p className="text-xs text-[#CFC8B4] leading-relaxed">
                 Near Jindal Supreme India Limited,<br />
                 Delhi Road, Hisar,<br />
                 Haryana – 125001
@@ -148,12 +154,12 @@ export default function Footer() {
 
           {/* Factory Unit 2 */}
           <div className="flex items-start gap-3">
-            <div className="p-2.5 rounded-lg bg-gradient-to-r from-bhagwa to-bhagwa-light flex-shrink-0">
-              <MapPin className="w-4 h-4 text-white" />
+            <div className="w-9 h-9 rounded-full bg-[rgba(255,196,75,.08)] border border-white/10 flex-shrink-0 flex items-center justify-center text-base">
+              🏭
             </div>
             <div>
-              <h5 className="font-semibold text-orange-400 text-sm mb-1">Factory Unit – 2</h5>
-              <p className="text-sm text-gray-900 leading-relaxed">
+              <h5 className="font-serif italic font-semibold text-[#FFC24B] text-sm mb-1">Factory Unit – 2</h5>
+              <p className="text-xs text-[#CFC8B4] leading-relaxed">
                 Murabba No. 136, Khasra Nos. 1/1,<br />
                 2/1, 2/2 & 1/2, Tehsil Hisar,<br />
                 District Hisar, Haryana – 125044, India
@@ -161,19 +167,17 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="bg-gray-100 border-t border-gray-200/50">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-2">
-            <p className="text-xs text-gray-600">
-              Copyright © {new Date().getFullYear()} Shree Gopala Sanwaria Chemicals. All Rights Reserved.
-            </p>
-            <p className="text-xs text-gray-500">
-              Made By <span className="text-orange-600 font-semibold">AHD Web Services</span>
-            </p>
-          </div>
+        {/* Divider */}
+        <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-2 relative">
+          <p className="text-xs text-[#8f9686]">
+            Copyright © {new Date().getFullYear()} Shree Gopala Sanwaria Chemicals. All Rights Reserved.
+          </p>
+          <p className="text-xs text-[#8f9686] flex items-center gap-2">
+            <span>www.shreegopalagroup.com</span>
+            <span className="text-white/20">|</span>
+            <span>Made By <span className="text-saf font-semibold">AHD Web Services</span></span>
+          </p>
         </div>
       </div>
     </footer>

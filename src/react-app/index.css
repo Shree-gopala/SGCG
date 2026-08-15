@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Manrope:wght@500;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -15,49 +15,56 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 25 40% 15%;
-    --card: 35 40% 97%;
-    --card-foreground: 25 40% 15%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 25 40% 15%;
-    --primary: 24 100% 50%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 35 30% 95%;
-    --secondary-foreground: 25 40% 15%;
-    --muted: 35 25% 94%;
-    --muted-foreground: 25 25% 40%;
-    --accent: 24 100% 50%;
-    --accent-foreground: 0 0% 100%;
+    --background: 38 52% 96%;
+    --foreground: 225 17% 9%;
+    --card: 41 44% 92%;
+    --card-foreground: 225 17% 9%;
+    --popover: 38 52% 96%;
+    --popover-foreground: 225 17% 9%;
+    --primary: 24 92% 47%;
+    --primary-foreground: 30 84% 7%;
+    --secondary: 41 44% 92%;
+    --secondary-foreground: 225 17% 9%;
+    --muted: 41 34% 90%;
+    --muted-foreground: 219 9% 52%;
+    --accent: 36 92% 53%;
+    --accent-foreground: 30 84% 7%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 60 9.1% 97.8%;
-    --border: 35 25% 85%;
-    --input: 35 25% 85%;
-    --ring: 24 100% 50%;
-    --radius: 0.45rem;
-    --chart-1: 24 100% 50%;
-    --chart-2: 35 70% 55%;
-    --chart-3: 24 80% 45%;
-    --chart-4: 35 60% 65%;
-    --chart-5: 24 60% 60%;
-    --sidebar: 0 0% 98%;
-    --sidebar-foreground: 25 40% 15%;
-    --sidebar-primary: 24 100% 50%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 35 30% 95%;
-    --sidebar-accent-foreground: 25 40% 15%;
-    --sidebar-border: 35 25% 85%;
-    --sidebar-ring: 24 100% 50%;
-    
-    /* Custom colors - Bhagwa/Saffron theme */
-    --bhagwa: 24 100% 50%;
-    --bhagwa-dark: 20 100% 42%;
-    --bhagwa-light: 30 100% 60%;
-    --gold: 40 85% 55%;
-    --gold-light: 42 90% 68%;
-    --cream: 35 40% 97%;
-    --cream-dark: 33 30% 92%;
-    --maroon: 0 60% 25%;
+    --border: 42 34% 87%;
+    --input: 42 34% 87%;
+    --ring: 24 92% 47%;
+    --radius: 1.25rem;
+    --chart-1: 24 92% 47%;
+    --chart-2: 36 92% 53%;
+    --chart-3: 163 62% 14%;
+    --chart-4: 219 14% 28%;
+    --chart-5: 219 9% 52%;
+    --sidebar: 38 52% 96%;
+    --sidebar-foreground: 225 17% 9%;
+    --sidebar-primary: 24 92% 47%;
+    --sidebar-primary-foreground: 30 84% 7%;
+    --sidebar-accent: 41 44% 92%;
+    --sidebar-accent-foreground: 225 17% 9%;
+    --sidebar-border: 42 34% 87%;
+    --sidebar-ring: 24 92% 47%;
+
+    /* Brand palette (matches the client-approved mockup) */
+    --saf: 36 92% 53%;
+    --saf2: 24 92% 47%;
+    --ink: 225 17% 9%;
+    --ink2: 223 19% 14%;
+    --paper: 38 52% 96%;
+    --paper2: 41 44% 92%;
+    --em: 163 62% 14%;
+    --em2: 162 61% 20%;
+    --tx: 219 14% 28%;
+    --mut: 219 9% 52%;
+    --line: 42 34% 87%;
+    --sgrad: linear-gradient(120deg, #FFC24B, #F59E1B 40%, #E8630A);
+    --r: 20px;
+    --r2: 28px;
+    --sh: 0 20px 60px rgba(20, 22, 28, .10);
   }
 
   .dark {
@@ -67,42 +74,32 @@
     --card-foreground: 35 30% 95%;
     --popover: 20 35% 12%;
     --popover-foreground: 35 30% 95%;
-    --primary: 24 100% 55%;
+    --primary: 24 92% 55%;
     --primary-foreground: 0 0% 100%;
     --secondary: 20 30% 18%;
     --secondary-foreground: 35 30% 95%;
     --muted: 20 25% 15%;
     --muted-foreground: 35 20% 70%;
-    --accent: 24 100% 55%;
+    --accent: 24 92% 55%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 72.2% 50.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 20 25% 22%;
     --input: 20 25% 22%;
-    --ring: 24 100% 55%;
-    --chart-1: 24 100% 55%;
-    --chart-2: 35 70% 55%;
-    --chart-3: 24 80% 50%;
-    --chart-4: 35 60% 65%;
-    --chart-5: 24 60% 65%;
+    --ring: 24 92% 55%;
+    --chart-1: 24 92% 55%;
+    --chart-2: 36 92% 55%;
+    --chart-3: 163 62% 20%;
+    --chart-4: 219 14% 40%;
+    --chart-5: 219 9% 60%;
     --sidebar: 20 30% 10%;
     --sidebar-foreground: 35 30% 95%;
-    --sidebar-primary: 24 100% 55%;
+    --sidebar-primary: 24 92% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 20 30% 18%;
     --sidebar-accent-foreground: 35 30% 95%;
     --sidebar-border: 20 25% 22%;
-    --sidebar-ring: 24 100% 55%;
-    
-    /* Custom colors - Bhagwa/Saffron theme */
-    --bhagwa: 24 100% 55%;
-    --bhagwa-dark: 20 100% 45%;
-    --bhagwa-light: 30 100% 65%;
-    --gold: 40 85% 60%;
-    --gold-light: 42 90% 72%;
-    --cream: 35 40% 97%;
-    --cream-dark: 33 30% 92%;
-    --maroon: 0 50% 30%;
+    --sidebar-ring: 24 92% 55%;
   }
 }
 
@@ -113,11 +110,11 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: "Source Sans 3", system-ui, sans-serif;
+    font-family: "Manrope", system-ui, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Playfair Display", Georgia, serif;
+    font-family: "Fraunces", Georgia, serif;
   }
 
   button:not([disabled]),
@@ -152,7 +149,7 @@
 
 .hero-bullet-active {
   width: 2.5rem;
-  background: linear-gradient(90deg, hsl(24 100% 50%), hsl(40 85% 55%));
+  background: linear-gradient(90deg, hsl(var(--saf2)), hsl(var(--saf)));
 }
 
 /* Animation classes */
@@ -220,8 +217,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(255, 153, 51, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(255, 153, 51, 0.6); }
+  0%, 100% { box-shadow: 0 0 20px rgba(232, 99, 10, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(232, 99, 10, 0.6); }
 }
 
 @keyframes shimmer {
@@ -268,6 +265,15 @@
   animation: gradient-shift 4s ease infinite;
 }
 
+/* Floating hero formula chip bob */
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-22px) rotate(2deg); }
+}
+.animate-bob {
+  animation: bob 7s ease-in-out infinite;
+}
+
 /* Marquee animation for logos */
 @keyframes marquee {
   0% { transform: translateX(0); }
@@ -296,7 +302,7 @@
 .gradient-border {
   position: relative;
   background: linear-gradient(white, white) padding-box,
-              linear-gradient(135deg, hsl(24 100% 50%), hsl(40 85% 55%), hsl(24 100% 50%)) border-box;
+              linear-gradient(135deg, hsl(var(--saf2)), hsl(var(--saf)), hsl(var(--saf2))) border-box;
   border: 2px solid transparent;
   background-size: 100% 100%, 200% 200%;
   animation: gradient-shift 4s ease infinite;
@@ -304,7 +310,7 @@
 
 /* Stats counter style */
 .stat-value {
-  background: linear-gradient(135deg, hsl(24 100% 50%), hsl(40 85% 55%));
+  background: linear-gradient(135deg, hsl(var(--saf2)), hsl(var(--saf)));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

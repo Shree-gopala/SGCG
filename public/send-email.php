@@ -42,6 +42,7 @@ $name = sanitizeInput($data['name']);
 $email = sanitizeInput($data['email']);
 $phone = isset($data['phone']) ? sanitizeInput($data['phone']) : '';
 $subject = sanitizeInput($data['subject']);
+$product = isset($data['product']) ? sanitizeInput($data['product']) : '';
 $message = sanitizeInput($data['message']);
 
 // Validate email
@@ -98,7 +99,14 @@ $emailBody = "
                 <div class='field-label'>Subject:</div>
                 <div class='field-value'>" . htmlspecialchars($subject) . "</div>
             </div>
-            
+
+            " . (!empty($product) ? "
+            <div class='field'>
+                <div class='field-label'>Product:</div>
+                <div class='field-value'>" . htmlspecialchars($product) . "</div>
+            </div>
+            " : "") . "
+
             <div class='field'>
                 <div class='field-label'>Message:</div>
                 <div class='field-value' style='white-space: pre-wrap;'>" . htmlspecialchars($message) . "</div>
@@ -116,7 +124,7 @@ try {
 
     // Client auto-responder subject
     $clientSubject = "Thank you for contacting SGSC";
-    $clientBody = getClientEmailBody($name, $subject, $email, $phone, $message);
+    $clientBody = getClientEmailBody($name, $subject, $email, $phone, $message, $product);
 
     try {
         // Try secure SMTP first to prevent email going to Spam
@@ -174,8 +182,9 @@ try {
 /**
  * Get Client auto-responder HTML body
  */
-function getClientEmailBody($name, $subject, $email, $phone, $message) {
+function getClientEmailBody($name, $subject, $email, $phone, $message, $product = '') {
     $phoneLine = !empty($phone) ? "<span style='color: #555;'>Phone:</span> " . htmlspecialchars($phone) . "<br />" : "";
+    $productLine = !empty($product) ? "<span style='color: #555;'>Product:</span> " . htmlspecialchars($product) . "<br />" : "";
     return "
     <html>
     <head>
@@ -201,7 +210,7 @@ function getClientEmailBody($name, $subject, $email, $phone, $message) {
                     <strong>Your Submitted Inquiry Details:</strong><br />
                     <span style='color: #555;'>Name:</span> " . htmlspecialchars($name) . "<br />
                     <span style='color: #555;'>Email:</span> " . htmlspecialchars($email) . "<br />
-                    " . $phoneLine . "
+                    " . $phoneLine . $productLine . "
                     <span style='color: #555;'>Message:</span><br />
                     <p style='white-space: pre-wrap; margin: 5px 0 0 0; color: #444;'>" . htmlspecialchars($message) . "</p>
                 </div>

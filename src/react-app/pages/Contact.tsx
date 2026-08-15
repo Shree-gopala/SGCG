@@ -4,7 +4,10 @@ import Header from "@/react-app/components/Header";
 import Footer from "@/react-app/components/Footer";
 import { ScrollReveal } from "@/react-app/components/ScrollReveal";
 import { BackgroundPattern } from "@/react-app/components/BackgroundPattern";
+import Kicker from "@/react-app/components/Kicker";
+import { PAGE_BANNER_GRADIENT } from "@/react-app/lib/pageBanner";
 import { companyInfo } from "@/data/company";
+import { products } from "@/data/products";
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle, ArrowRight } from "lucide-react";
 
 export default function ContactPage() {
@@ -13,6 +16,7 @@ export default function ContactPage() {
     email: "",
     phone: "",
     subject: "",
+    product: "",
     message: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -61,8 +65,8 @@ const handleSubmit = async (e: FormEvent) => {
 
     if (response.ok) {
       // YAHAN SE SUCCESS MESSAGE TRIGGER HOGA
-      setIsSubmitted(true); 
-      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+      setIsSubmitted(true);
+      setFormData({ name: "", email: "", phone: "", subject: "", product: "", message: "" });
       setErrors({});
     } else {
       alert("Mail bhejane mein problem aayi. PHP mail setup check karein.");
@@ -79,8 +83,8 @@ const handleSubmit = async (e: FormEvent) => {
       title: "Phone",
       details: (
         <div className="flex flex-col gap-0.5 text-sm font-semibold">
-          <a href="tel:+919999665479" className="text-gray-600 hover:text-orange-500 transition-colors font-mono">+91 99996 65479</a>
-          <a href="tel:+919310543479" className="text-gray-600 hover:text-orange-500 transition-colors font-mono">+91 93105 43479</a>
+          <a href="tel:+919999665479" className="text-tx hover:text-saf2 transition-colors font-mono">+91 99996 65479</a>
+          <a href="tel:+919310543479" className="text-tx hover:text-saf2 transition-colors font-mono">+91 93105 43479</a>
         </div>
       ),
     },
@@ -89,13 +93,13 @@ const handleSubmit = async (e: FormEvent) => {
       title: "Email",
       details: (
         <div className="text-sm font-semibold flex flex-col gap-1">
-          <a href="mailto:ghanshyam.kumar.sgsc@gmail.com" className="text-gray-600 hover:text-orange-500 transition-colors break-all">
+          <a href="mailto:ghanshyam.kumar.sgsc@gmail.com" className="text-tx hover:text-saf2 transition-colors break-all">
             ghanshyam.kumar.sgsc@gmail.com
           </a>
-          <a href="mailto:info@shreegopalagroup.com" className="text-gray-600 hover:text-orange-500 transition-colors break-all">
+          <a href="mailto:info@shreegopalagroup.com" className="text-tx hover:text-saf2 transition-colors break-all">
             info@shreegopalagroup.com
           </a>
-          <a href="mailto:shreegopalasanwariachemicals@gmail.com" className="text-gray-600 hover:text-orange-500 transition-colors break-all">
+          <a href="mailto:shreegopalasanwariachemicals@gmail.com" className="text-tx hover:text-saf2 transition-colors break-all">
             shreegopalasanwariachemicals@gmail.com
           </a>
         </div>
@@ -110,7 +114,7 @@ const handleSubmit = async (e: FormEvent) => {
             href={`https://maps.google.com/?q=${encodeURIComponent("4th Floor, G-4, Pushkar Enclave, Paschim Vihar, New Delhi - 110063")}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 hover:text-orange-500 transition-colors"
+            className="text-tx hover:text-saf2 transition-colors"
           >
             4th Floor, G-4, Pushkar Enclave, Paschim Vihar, New Delhi – 110063
           </a>
@@ -120,24 +124,27 @@ const handleSubmit = async (e: FormEvent) => {
     {
       icon: <Clock className="w-5 h-5 sm:w-6 sm:h-6" />,
       title: "Business Hours",
-      details: <span className="text-gray-600 text-sm font-semibold">Mon - Sat: 9:00 AM - 6:00 PM</span>,
+      details: <span className="text-tx text-sm font-semibold">Mon - Sat: 9:00 AM - 6:00 PM</span>,
     },
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-paper2">
       <Header />
 
       {/* Banner Section */}
-      <section className="relative pt-32 pb-12 md:pt-40 md:pb-16 bg-gradient-to-r from-orange-50 via-white to-orange-100/40 border-b border-orange-100/50 overflow-hidden">
+      <section
+        className="relative pt-32 pb-12 md:pt-40 md:pb-16 border-b border-white/10 overflow-hidden"
+        style={{ background: PAGE_BANNER_GRADIENT }}
+      >
         <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 text-center">
-          <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-gray-900 font-bold mb-3 animate-fade-in-up">
-            Contact Us
+          <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#F7F1E1] font-semibold mb-3 animate-fade-in-up tracking-tight">
+            Contact <span className="italic text-transparent bg-clip-text bg-sgrad">Us</span>
           </h1>
-          <nav className="flex items-center justify-center gap-2 text-gray-500 text-sm animate-fade-in-up animation-delay-200">
-            <Link to="/" className="hover:text-orange-500 transition-colors">Home</Link>
+          <nav className="flex items-center justify-center gap-2 text-white/60 text-sm animate-fade-in-up animation-delay-200">
+            <Link to="/" className="hover:text-saf transition-colors">Home</Link>
             <span>›</span>
-            <span className="text-orange-600 font-medium">Contact Us</span>
+            <span className="text-saf font-medium">Contact Us</span>
           </nav>
         </div>
       </section>
@@ -148,13 +155,11 @@ const handleSubmit = async (e: FormEvent) => {
           <BackgroundPattern />
           <ScrollReveal className="max-w-6xl mx-auto px-4 md:px-8">
             <div className="text-center mb-8 md:mb-10">
-              <span className="text-orange-500 text-sm font-bold tracking-wider uppercase">
-                Get In Touch
-              </span>
-              <h2 className="font-serif text-3xl md:text-4xl text-gray-900 font-bold mt-2">
+              <Kicker center>Get In Touch</Kicker>
+              <h2 className="font-serif text-3xl md:text-4xl text-ink font-semibold mt-2 tracking-tight">
                 We'd Love To Hear From You
               </h2>
-              <p className="text-gray-500 mt-3 max-w-xl mx-auto">
+              <p className="text-mut mt-3 max-w-xl mx-auto">
                 Reach out for product inquiries, quotes, or partnership opportunities
               </p>
             </div>
@@ -163,12 +168,12 @@ const handleSubmit = async (e: FormEvent) => {
               {contactInfo.map((info, index) => (
                 <div
                   key={index}
-                  className="bg-white p-4 sm:p-6 rounded-xl border border-gray-150 shadow-sm hover:border-orange-300 hover:shadow-lg transition-all duration-300"
+                  className="bg-white p-4 sm:p-6 rounded-2xl border border-line shadow-soft hover:border-saf/40 hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="w-11 h-11 sm:w-14 sm:h-14 bg-orange-100 rounded-xl flex items-center justify-center text-orange-500 mb-3 sm:mb-4">
+                  <div className="w-11 h-11 sm:w-14 sm:h-14 bg-saf/10 rounded-xl flex items-center justify-center text-saf2 mb-3 sm:mb-4">
                     {info.icon}
                   </div>
-                  <h3 className="font-bold text-gray-900 text-lg mb-1 sm:mb-2">
+                  <h3 className="font-serif font-semibold text-ink text-lg mb-1 sm:mb-2">
                     {info.title}
                   </h3>
                   <div>
@@ -181,28 +186,28 @@ const handleSubmit = async (e: FormEvent) => {
         </section>
 
         {/* Contact Form & Map Section */}
-        <section className="py-12 md:py-16 bg-gray-50">
+        <section className="py-12 md:py-16 bg-paper2">
           <ScrollReveal className="max-w-6xl mx-auto px-4 md:px-8">
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Contact Form */}
-              <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 h-fit">
-                <h2 className="font-serif text-2xl text-gray-900 font-bold mb-2">
+              <div className="bg-white p-8 rounded-3xl shadow-soft border border-line h-fit">
+                <h2 className="font-serif text-2xl text-ink font-semibold mb-2">
                   Send us a Message
                 </h2>
-                <p className="text-gray-500 text-sm mb-6">
+                <p className="text-mut text-sm mb-6">
                   Fill out the form below and we'll get back to you within 24 hours
                 </p>
 
                 {isSubmitted ? (
                   <div className="text-center py-12">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle className="w-8 h-8 text-green-600" />
+                    <div className="w-16 h-16 bg-em/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle className="w-8 h-8 text-em" />
                     </div>
-                    <h3 className="font-bold text-gray-900 text-xl mb-2">Message Sent!</h3>
-                    <p className="text-gray-600 mb-6">Thank you for reaching out. We'll respond shortly.</p>
+                    <h3 className="font-serif font-semibold text-ink text-xl mb-2">Message Sent!</h3>
+                    <p className="text-tx mb-6">Thank you for reaching out. We'll respond shortly.</p>
                     <button
                       onClick={() => setIsSubmitted(false)}
-                      className="text-orange-500 font-semibold hover:underline"
+                      className="text-saf2 font-semibold hover:underline"
                     >
                       Send another message
                     </button>
@@ -211,25 +216,25 @@ const handleSubmit = async (e: FormEvent) => {
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1.5">Full Name *</label>
+                        <label className="block text-sm font-medium text-tx mb-1.5">Full Name *</label>
                         <input
                           type="text"
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition-all"
+                          className="w-full px-4 py-3 border border-line rounded-xl focus:ring-2 focus:ring-saf2/20 focus:border-saf2 outline-none transition-all"
                           placeholder="Your name"
                         />
                         {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1.5">Email Address *</label>
+                        <label className="block text-sm font-medium text-tx mb-1.5">Email Address *</label>
                         <input
                           type="email"
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition-all"
+                          className="w-full px-4 py-3 border border-line rounded-xl focus:ring-2 focus:ring-saf2/20 focus:border-saf2 outline-none transition-all"
                           placeholder="your.email@example.com"
                         />
                         {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
@@ -237,49 +242,61 @@ const handleSubmit = async (e: FormEvent) => {
                     </div>
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1.5">Phone Number</label>
+                        <label className="block text-sm font-medium text-tx mb-1.5">Phone Number</label>
                         <input
                           type="tel"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition-all"
+                          className="w-full px-4 py-3 border border-line rounded-xl focus:ring-2 focus:ring-saf2/20 focus:border-saf2 outline-none transition-all"
                           placeholder="+91 XXXXX XXXXX"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1.5">Subject *</label>
+                        <label className="block text-sm font-medium text-tx mb-1.5">Subject *</label>
                         <select
                           required
                           value={formData.subject}
                           onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition-all bg-white"
+                          className="w-full px-4 py-3 border border-line rounded-xl focus:ring-2 focus:ring-saf2/20 focus:border-saf2 outline-none transition-all bg-white"
                         >
                           <option value="">Select subject</option>
                           <option value="inquiry">Product Inquiry</option>
                           <option value="quote">Request a Quote</option>
-                          <option value="partnership">Partnership</option>
                           <option value="other">Other</option>
                         </select>
                         {errors.subject && <p className="text-red-500 text-xs mt-1">{errors.subject}</p>}
                       </div>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1.5">Message *</label>
+                      <label className="block text-sm font-medium text-tx mb-1.5">Product (optional)</label>
+                      <select
+                        value={formData.product}
+                        onChange={(e) => setFormData({ ...formData, product: e.target.value })}
+                        className="w-full px-4 py-3 border border-line rounded-xl focus:ring-2 focus:ring-saf2/20 focus:border-saf2 outline-none transition-all bg-white"
+                      >
+                        <option value="">Select a product…</option>
+                        {products.map((p) => (
+                          <option key={p.id} value={p.name}>{p.name}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-tx mb-1.5">Message *</label>
                       <textarea
                         required
                         rows={5}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition-all resize-none"
+                        className="w-full px-4 py-3 border border-line rounded-xl focus:ring-2 focus:ring-saf2/20 focus:border-saf2 outline-none transition-all resize-none"
                         placeholder="Describe your requirements..."
                       />
                       {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
                     </div>
-                    
+
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-lg transition-colors shadow-md shadow-orange-500/20 disabled:opacity-50"
+                      className="w-full inline-flex items-center justify-center gap-2 bg-sgrad text-ink font-extrabold py-3 rounded-full transition-all duration-300 shadow-glow hover:-translate-y-0.5 disabled:opacity-50 disabled:translate-y-0"
                     >
                       {isSubmitting ? "Sending..." : "Send Message"}
                       <Send className="w-4 h-4" />
@@ -291,7 +308,7 @@ const handleSubmit = async (e: FormEvent) => {
               {/* Map & Company Info */}
               <div className="space-y-6">
                 {/* Map */}
-                <div className="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100">
+                <div className="bg-white rounded-3xl shadow-soft overflow-hidden border border-line">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3434.9080271701546!2d75.79745651502447!3d29.118281182229562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!2m2!1s0x0%3A0x0!2zMjnCsDA3JzA1LjgiTiA3NcKwNDgnMDAuMSJF!5e0!3m2!1sen!2sin!4v1704067200000!5m2!1sen!2sin"
                     width="100%"
@@ -305,22 +322,22 @@ const handleSubmit = async (e: FormEvent) => {
                   />
                   <div className="p-5 space-y-4">
                     <div className="flex items-start gap-3">
-                      <MapPin className="w-5 h-5 text-orange-500 flex-shrink-0 mt-1" />
+                      <MapPin className="w-5 h-5 text-saf2 flex-shrink-0 mt-1" />
                       <div>
-                        <h4 className="font-semibold text-gray-900 text-sm mb-1">Factory Unit – 1</h4>
-                        <p className="text-gray-600 text-sm">Near Jindal Supreme India Limited, Delhi Road, Hisar, Haryana – 125001</p>
+                        <h4 className="font-semibold text-ink text-sm mb-1">Factory Unit – 1</h4>
+                        <p className="text-tx text-sm">Near Jindal Supreme India Limited, Delhi Road, Hisar, Haryana – 125001</p>
                       </div>
                     </div>
-                    <div className="border-t border-gray-100 my-2" />
+                    <div className="border-t border-line my-2" />
                     <div className="flex items-start gap-3">
-                      <MapPin className="w-5 h-5 text-orange-500 flex-shrink-0 mt-1" />
+                      <MapPin className="w-5 h-5 text-saf2 flex-shrink-0 mt-1" />
                       <div>
-                        <h4 className="font-semibold text-gray-900 text-sm mb-1">Factory Unit – 2</h4>
-                        <a 
+                        <h4 className="font-semibold text-ink text-sm mb-1">Factory Unit – 2</h4>
+                        <a
                           href="https://maps.app.goo.gl/xzttmwJBv5bRwjmz5"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-600 hover:text-orange-500 transition-colors text-sm"
+                          className="text-tx hover:text-saf2 transition-colors text-sm"
                         >
                           Murabba No. 136, Khasra Nos. 1/1, 2/1, 2/2 & 1/2, Tehsil Hisar, District Hisar, Haryana – 125044, India
                         </a>
@@ -330,21 +347,22 @@ const handleSubmit = async (e: FormEvent) => {
                 </div>
 
                 {/* Company Info Card */}
-                <div className="bg-gradient-to-br from-orange-50/60 to-orange-100/30 border border-orange-100/50 p-8 rounded-2xl text-gray-900 shadow-sm">
-                  <h3 className="font-serif text-xl font-bold mb-2">{companyInfo.shortName}</h3>
-                  <p className="text-orange-600 font-semibold text-sm mb-4">{companyInfo.name}</p>
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    With over {companyInfo.yearsOfExperience} years of experience in chemical manufacturing, 
+                <div className="bg-em text-white p-8 rounded-3xl shadow-2xl relative overflow-hidden">
+                  <div className="absolute inset-0 bg-[radial-gradient(600px_300px_at_85%_110%,rgba(245,158,27,.15),transparent_60%)]" />
+                  <h3 className="font-serif text-xl font-semibold mb-2 relative">{companyInfo.shortName}</h3>
+                  <p className="text-saf font-semibold text-sm mb-4 relative">{companyInfo.name}</p>
+                  <p className="text-white/70 leading-relaxed mb-6 relative">
+                    With over {companyInfo.yearsOfExperience} years of experience in chemical manufacturing,
                     we are your trusted partner for high-quality zinc chemicals, metal powders, and ingots.
                   </p>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white border border-orange-100/40 shadow-sm rounded-xl p-4 text-center">
-                      <p className="text-3xl font-bold text-orange-600">{companyInfo.yearsOfExperience}+</p>
-                      <p className="text-gray-500 text-xs uppercase tracking-wider">Years</p>
+                  <div className="grid grid-cols-2 gap-4 relative">
+                    <div className="bg-white/10 border border-white/15 backdrop-blur-sm rounded-xl p-4 text-center">
+                      <p className="text-3xl font-bold text-saf">{companyInfo.yearsOfExperience}+</p>
+                      <p className="text-white/60 text-xs uppercase tracking-wider">Years</p>
                     </div>
-                    <div className="bg-white border border-orange-100/40 shadow-sm rounded-xl p-4 text-center">
-                      <p className="text-3xl font-bold text-orange-600">{companyInfo.productLines}+</p>
-                      <p className="text-gray-500 text-xs uppercase tracking-wider">Products</p>
+                    <div className="bg-white/10 border border-white/15 backdrop-blur-sm rounded-xl p-4 text-center">
+                      <p className="text-3xl font-bold text-saf">{companyInfo.productLines}+</p>
+                      <p className="text-white/60 text-xs uppercase tracking-wider">Products</p>
                     </div>
                   </div>
                 </div>
@@ -354,19 +372,19 @@ const handleSubmit = async (e: FormEvent) => {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-gradient-to-r from-orange-50/50 via-orange-50 to-orange-100/20 border-t border-orange-100/40 py-10">
+        <section className="bg-em py-10">
           <div className="max-w-6xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <h2 className="text-xl md:text-2xl text-gray-900 font-bold">
+              <h2 className="text-xl md:text-2xl text-[#F7F1E1] font-semibold font-serif">
                 Need Industrial Chemical Solutions?
               </h2>
-              <p className="text-gray-600 text-sm">
+              <p className="text-white/60 text-sm">
                 Get in touch with our experts today.
               </p>
             </div>
-            <Link 
+            <Link
               to="/products"
-              className="inline-flex items-center gap-2 bg-orange-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-600 transition-colors"
+              className="inline-flex items-center gap-2 bg-sgrad text-ink px-6 py-3 rounded-full font-extrabold transition-all duration-300 shadow-glow hover:-translate-y-0.5"
             >
               View Products
               <ArrowRight className="w-4 h-4" />
@@ -377,6 +395,6 @@ const handleSubmit = async (e: FormEvent) => {
 
       <Footer />
     </div>
-   
+
   );
 }
