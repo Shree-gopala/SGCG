@@ -40,7 +40,7 @@ export default function Header() {
       {/* Floating glass pill header */}
       <div className="max-w-7xl mx-auto">
         <div className={`relative rounded-3xl px-5 md:px-10 py-3 border border-white/10 backdrop-blur-xl transition-all duration-300 shadow-soft ${
-          isScrolled ? "bg-ink/95 shadow-2xl" : "bg-ink/80"
+          isScrolled ? "bg-white shadow-2xl" : "bg-white"
         }`}>
           {/* Main header content */}
           <div className="flex items-center justify-between">
@@ -52,7 +52,7 @@ export default function Header() {
                 alt="SGSC"
                 className="block md:hidden h-8 w-auto object-contain"
               />
-              <span className="hidden md:block font-serif font-semibold text-[#F5EEDC] text-[13px] leading-[1.2] tracking-[.2px]">
+              <span className="hidden md:block font-serif font-semibold text-gray-900 text-[13px] leading-[1.2] tracking-[.2px]">
                 Shree Gopala<br />Sanwaria Chemicals
               </span>
             </Link>
@@ -62,7 +62,7 @@ export default function Header() {
               <div className="relative">
                 {/* Decorative ring */}
                 <div className="absolute -inset-0.5 rounded-full border border-saf/50" />
-                <div className="relative w-10 h-10 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-saf bg-white shadow-[0_0_0_3px_rgba(18,20,16,.9),0_0_26px_rgba(227,169,60,.5)]">
+                <div className="relative w-10 h-10 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-saf bg-white shadow-[0_0_0_3px_rgba(255,255,255,.9),0_0_26px_rgba(227,169,60,.5)]">
                   <img
                     src={GOD_IMAGE_URL}
                     alt="Shree Radha Krishna"
@@ -82,8 +82,8 @@ export default function Header() {
                         to={link.path}
                         className={`relative text-xs font-extrabold uppercase tracking-widest transition-all duration-300 pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-0.5 after:rounded-full after:bg-sgrad after:transition-all after:duration-300 ${
                           location.pathname === link.path
-                            ? "text-saf after:w-full"
-                            : "text-[#CFC8B4] hover:text-saf after:w-0 hover:after:w-full"
+                            ? "text-[#FF9933] after:w-full"
+                            : "text-gray-900 hover:text-[#FF9933] after:w-0 hover:after:w-full"
                         }`}
                       >
                         {link.name}
@@ -92,18 +92,18 @@ export default function Header() {
                   ))}
                 </ul>
               </nav>
-              <div className="h-4 w-px bg-white/15" />
-              <div className="flex gap-2 text-xs font-extrabold text-[#9AA] bg-white/5 border border-white/20 rounded-full px-3 py-1.5">
+              <div className="h-4 w-px bg-gray-200" />
+              <div className="flex gap-2 text-xs font-extrabold text-gray-600 bg-gray-50 border border-gray-100 rounded-full px-3 py-1.5">
                 <button
                   onClick={() => window.changeLanguageByGoogle('en')}
-                  className="hover:text-saf transition-colors"
+                  className="hover:text-[#FF9933] transition-colors"
                 >
                   EN
                 </button>
-                <span className="text-white/20">|</span>
+                <span className="text-gray-300">|</span>
                 <button
                   onClick={() => window.changeLanguageByGoogle('hi')}
-                  className="hover:text-saf transition-colors"
+                  className="hover:text-[#FF9933] transition-colors"
                 >
                   हिं
                 </button>
@@ -112,24 +112,24 @@ export default function Header() {
 
             {/* Mobile Actions - Right */}
             <div className="flex nav:hidden items-center gap-3">
-              <div className="flex gap-1.5 text-[10px] font-extrabold text-[#9AA] bg-white/5 border border-white/20 rounded-full px-2.5 py-1">
+              <div className="flex gap-1.5 text-[10px] font-extrabold text-gray-600 bg-gray-50 border border-gray-100 rounded-full px-2.5 py-1">
                 <button
                   onClick={() => window.changeLanguageByGoogle('en')}
-                  className="hover:text-saf transition-colors"
+                  className="hover:text-[#FF9933] transition-colors"
                 >
                   EN
                 </button>
-                <span className="text-white/20">|</span>
+                <span className="text-gray-300">|</span>
                 <button
                   onClick={() => window.changeLanguageByGoogle('hi')}
-                  className="hover:text-saf transition-colors"
+                  className="hover:text-[#FF9933] transition-colors"
                 >
                   हिं
                 </button>
               </div>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-[#F5EEDC] p-1.5 hover:bg-white/10 rounded-full transition-colors"
+                className="text-gray-700 p-1.5 hover:bg-gray-100 rounded-full transition-colors"
                 aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -140,7 +140,7 @@ export default function Header() {
 
         {/* Mobile Navigation Menu */}
         {mobileMenuOpen && (
-          <nav className="nav:hidden mt-2 bg-ink/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-soft overflow-hidden">
+          <nav className="nav:hidden mt-2 bg-white backdrop-blur-xl border border-gray-100 rounded-2xl shadow-soft overflow-hidden">
             <ul className="flex flex-col py-2">
               {navLinks.map((link) => (
                 <li key={link.path}>
@@ -150,7 +150,7 @@ export default function Header() {
                     className={`block px-6 py-3 text-sm font-extrabold uppercase tracking-wide transition-all duration-200 ${
                       location.pathname === link.path
                         ? "text-ink bg-sgrad"
-                        : "text-[#CFC8B4] hover:text-saf hover:bg-white/5"
+                        : "text-gray-700 hover:text-[#FF9933] hover:bg-orange-50"
                     }`}
                   >
                     {link.name}
